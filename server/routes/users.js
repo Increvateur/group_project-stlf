@@ -3,10 +3,10 @@
  */
 var express = require("express");
 var router = express.Router();
-var db_query = require("../models/users.js");
+var User = require("../models/users.js");
 
 router.get("/getnames", function(req, res){
-    db_query.find({}, function(err, data){
+    User.find({}, function(err, data){
         if (err) {
             console.log("Error Retrieving Names from the Database", err);
         }
@@ -15,7 +15,10 @@ router.get("/getnames", function(req, res){
 });
 
 router.post("/postnames", function (req, res) {
-    var newName = new db_query({"name" : req.body.name});
+  var request = req.body
+    var newUser = new User({ 'firstname' : request.firstname, 'lastname' : request.lastname,
+    'email' : request.email, 'username' : request.username, 'password' : request.password,
+    'role' : request.role, 'default_view' : request.default_view });
     newName.save(function(err, data) {
         if (err) {
             console.log("Error Saving Names to Database", err);
