@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 
+
 // Database - MongoDb
 var db = require("./modules/db_connect.js");
 
@@ -26,6 +27,17 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // routes and server connection
 app.use("/users",users);
+
+// MODELS
+var db = require("./models/db_connect.js"); // MongoDB
+
+// MODULES
+var index = require("./modules/index.js");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+
 app.use("/", index);
 
 app.set("port", (process.env.PORT || 5000));
