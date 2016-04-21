@@ -1,0 +1,32 @@
+{
+  "name": "group_project_team_stlf",
+  "version": "1.0.0",
+  "description": "Group Project for Team STLF",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "author": "Matthew Keymer, Neil Skupa, Riley Harrison, Aaron McGrath, Mark Rothermal",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-animate": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "angular-ui-bootstrap": "^1.3.2",
+    "body-parser": "^1.15.0",
+    "bootstrap": "^3.3.6",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.12"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "nodemon": "^1.9.1"
+
+  }
+}
