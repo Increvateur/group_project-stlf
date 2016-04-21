@@ -5,13 +5,13 @@ var Schema = mongoose.Schema;
 
 // USER Schema
 var User = new Schema ({
-  firstname: { type: String, required: true },
-  lastname: { type: String, required: true },
-  email: { type: String, required: true },
-  username: { type: String, required: true },
-  password: { type: String, required: true },
-  role: { type: String, required: true },
-  default_view: { type: String, required: true }
+  firstname: { type: String, required: false },
+  lastname: { type: String, required: false },
+  email: { type: String, required: false },
+  username: { type: String, required: false },
+  password: { type: String, required: false },
+  role: { type: String, required: false },
+  default_view: { type: String, required: false }
 });
 
 module.exports = mongoose.model('Users', User);

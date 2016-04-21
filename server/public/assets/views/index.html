@@ -33,14 +33,14 @@
       <div class="form-group ">
         <label for="name-input">Who is working on this project?</label>
           <p></p>
-        <input type="text" class="form-control" id="name-input" ng-model="user.name" placeholder="Name" required autofocus />
+        <input type="text" class="form-control" id="name-input" ng-model="user.firstname" placeholder="Name" required autofocus />
           <p></p>
         <input class="btn btn-default" type="submit" value="Add Name" />
       </div>
     </form>
         <p> LIST OF PEOPLE IN DATABASE</p>
-    <div ng-repeat="name in names"class="text-center container well col-sm-3">
-     <p >{{ name.name }}</p>
+    <div ng-repeat="person in names"class="text-center container well col-sm-3">
+     <p >{{ person.firstname }}</p>
     </div>
   </body>
 </html>

@@ -2,7 +2,7 @@
   "_args": [
     [
       "angular-route@^1.5.5",
-      "/Users/aaronmcgrath/Atom_Projects/group_project_stlf/stlf_working_files/group_project-stlf"
+      "/Users/JFCS/Desktop/week16/stlf_group_project"
     ]
   ],
   "_from": "angular-route@>=1.5.5 <2.0.0",
@@ -36,7 +36,7 @@
   "_shasum": "69349369209b1f34724a58145dc7ec6a4987a1e7",
   "_shrinkwrap": null,
   "_spec": "angular-route@^1.5.5",
-  "_where": "/Users/aaronmcgrath/Atom_Projects/group_project_stlf/stlf_working_files/group_project-stlf",
+  "_where": "/Users/JFCS/Desktop/week16/stlf_group_project",
   "author": {
     "email": "angular-core+npm@google.com",
     "name": "Angular Core Team"

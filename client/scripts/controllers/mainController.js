@@ -1,8 +1,10 @@
 myApp.controller("MainController", ["$scope", "STLFModule", function($scope, STLFModule) {
 
+    $scope.names=[];
+
   $scope.addName = function(data) {
       var postItem = {
-      "name": data.name
+      "firstname": data.firstname
       };
 
       STLFModule.postNames(postItem)

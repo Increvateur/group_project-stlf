@@ -10,6 +10,7 @@ myApp.factory("STLFModule", ["$http", function($http) {
   };
 
   var postNames = function(data) {
+    console.log(data);
     return $http.post("users/postnames", data).then(function(response) {
       return getNames();
     });
