@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Group Project - Team STLF</title>
+
+    <!-- STYLES -->
+      <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="./assets/vendors/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/vendors/bootstrap-theme.min.css" />
+      <!-- ANGULAR UI BOOTSTRAP -->
+    <link rel="stylesheet" href="./assets/vendors/ui-bootstrap-csp.css" />
+      <!-- OUR CSS -->
+    <link rel="stylesheet" href="./assets/styles/stylesheet.css" />
+
+    <!-- SCRIPTS -->
+      <!-- ANGULAR -->
+    <script type="text/javascript" src="./assets/vendors/angular.min.js"></script>
+    <script type="text/javascript" src="./assets/vendors/angular-route.min.js"></script>
+    <script type="text/javascript" src="./assets/vendors/angular-animate.min.js"></script>
+      <!-- ANGULAR UI BOOTSTRAP -->
+    <script type="text/javascript" src="./assets/vendors/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="./assets/vendors/ui-bootstrap-tpls.js"></script>
+      <!-- OUR JAVASCRIPT -->
+    <script type="text/javascript" src="./assets/scripts/client.js"></script>
+    <script type="text/javascript" src="./assets/scripts/controllers.js"></script>
+    <script type="text/javascript" src="./assets/scripts/factories.js"></script>
+
+  </head>
+  <body ng-controller="MainController">
+    <h1>Group Project - Team STLF</h1>
+    <form ng-submit="addName(user)">
+      <div class="form-group">
+        <label for="name-input">Who is working on this project?</label>
+          <p></p>
+        <input type="text" class="form-control" id="name-input" ng-model="user.name" placeholder="Name" required autofocus />
+          <p></p>
+        <input class="btn btn-default" type="submit" value="Add Name" />
+      </div>
+    </form>
+        <p></p>
+    <div ng-repeat="name in names">
+      {{ name.name }}
+    </div>
+  </body>
+</html>
