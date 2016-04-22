@@ -17,8 +17,8 @@
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
     "express": "^4.13.4",
+    "jsforce": "^1.6.0",
     "mongoose": "^4.4.12"
-
   },
   "devDependencies": {
     "grunt": "^1.0.1",
@@ -28,7 +28,5 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "nodemon": "^1.9.1"
-
-
   }
 }
