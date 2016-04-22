@@ -21,6 +21,8 @@
       <!-- ANGULAR UI BOOTSTRAP -->
     <script type="text/javascript" src="./assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
     <script type="text/javascript" src="./assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <!--ANGULAR SMART TABLE-->
+    <script type="text/javascript" src="./assets/vendors/angular-smart-table/dist/smart-table.min.js"></script>
       <!-- OUR JAVASCRIPT -->
     <script type="text/javascript" src="./assets/scripts/client.min.js"></script>
 
@@ -42,5 +44,7 @@
     <div ng-repeat="person in names"class="text-center container well col-sm-3">
      <p >{{ person.firstname }}</p>
     </div>
+
+  <main ng-view></main>
   </body>
 </html>

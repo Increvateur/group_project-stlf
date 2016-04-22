@@ -48,7 +48,8 @@ module.exports = function(grunt) {
                     "angular-material/*",
                     "angular-messages/*",
                     "angular-route/*",
-                    "angular-ui-bootstrap/dist/*"
+                    "angular-ui-bootstrap/dist/*",
+                    "angular-smart-table/dist/*"
                 ],
                 "dest": "server/public/assets/vendors/"
             },
