@@ -16,6 +16,10 @@ myApp.factory("STLFModule", ["$http", function($http) {
     });
   };
 
+  var newUser = function(data) {
+    console.log(data);
+  };
+
   return {
 
     getNames : getNames,
