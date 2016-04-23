@@ -28,42 +28,43 @@
 </head>
 <body>
   <div class="container">
-    <form role="form">
+    <form ng-submit="submit(addUser)" role="form">
       <div class="form-inline">
         <div class="form-group">
           <label for="firstname">First Name</label>
-          <input type="firstname" class="form-control" placeholder="First Name" />
+          <input ng-model="addUser.firstname" type="firstname" class="form-control" placeholder="First Name" />
         </div>
 
         <div class="form-group">
           <label for="lastname">Last Name</label>
-          <input type="firstname" class="form-control" placeholder="Last Name" />
+          <input ng-model="addUser.lastname" type="firstname" class="form-control" placeholder="Last Name" />
         </div>
       </div>
 
       <div class="form-inline">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" placeholder="Email" />
+          <input ng-model="addUser.email" type="email" class="form-control" placeholder="Email" />
         </div>
 
         <div class="form-group">
           <label for="role">Role</label>
-          <input type="role" class="form-control" placeholder="Role" />
+          <input ng-model="addUser.role" type="role" class="form-control" placeholder="Role" />
         </div>
       </div>
 
       <div class="form-inline">
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="username" class="form-control" placeholder="Username" />
+          <input ng-model="addUser.username" type="username" class="form-control" placeholder="Username" />
         </div>
 
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" placeholder="Password" />
+          <input ng-model="addUser.password" type="password" class="form-control" placeholder="Password" />
         </div>
       </div>
+      <button type="submit" class="btn btn-default submit">Submit</button>
     </form>
   </div>
 
