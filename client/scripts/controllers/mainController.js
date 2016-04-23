@@ -30,6 +30,7 @@ myApp.controller('AddUserController', ['$scope', 'STLFModule', function($scope, 
   $scope.addUser = {};
 
   $scope.submit = function(data) {
-    console.log(data);
+    console.log('@mainController.js AddUserController data (AKA: addUser: ', data);
+    stlfModule.newUser(data);
   };
 }]);

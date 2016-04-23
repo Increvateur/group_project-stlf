@@ -17,13 +17,17 @@ myApp.factory("STLFModule", ["$http", function($http) {
   };
 
   var newUser = function(data) {
-    console.log(data);
+    console.log('-@FACTORY userServcie.js newUser(data) = ', data);
+    // $http.post('users/newuser', data).then(function(response) {
+    //   // some sort of feedback that user was added to DB
+    // });
   };
 
   return {
 
     getNames : getNames,
     postNames : postNames,
+    newUser: newUser,
     data : data
 
   };
