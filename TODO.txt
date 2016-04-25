@@ -1,0 +1,11 @@
+Current TODO Items for Team STLF:
+  (Remove the items as they are completed BEFORE you push to Master)
+
+- Charts and visual data up and functional
+- Passport merged into Master
+- Retrieve data from SalesForce API
+- SalesForce queries needed to retrieve specific data
+- POST and GET goal data from database
+- Goal input form(s)
+- Site Navigation
+- Table flow (how the tables will be displayed once data is retrieved)
