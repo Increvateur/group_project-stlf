@@ -4,7 +4,52 @@
 p{
   color:blue;
 }
+<<<<<<< HEAD
 .st-selected {
   background-color: #003366;
   color: white;
 }
+=======
+
+.instructions .container h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.instructions {
+    background-color: #333333;
+    color: #DDDDDD;
+}
+
+#entryForm {
+    margin-top: 14px;
+}
+
+#container {
+    margin-top: 10px;
+}
+
+.container p{
+    margin-top : 14px;
+}
+
+.message {
+    padding: 10px 0;
+}
+
+.message p {
+    margin-left: 10px;
+}
+
+.message:nth-child(odd) {
+     background-color: #eeeeee;
+}
+
+.message:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.btn-danger{
+    margin-left: 10px;
+}
+>>>>>>> c6e2a147702c3ec5e488f1819abcc6bd9b1f6883

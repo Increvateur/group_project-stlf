@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Group Project - Team STLF</title>
 
     <!-- STYLES -->
@@ -21,12 +21,34 @@
     <!-- ANGULAR UI BOOTSTRAP -->
     <script type="text/javascript" src="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
     <script type="text/javascript" src="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <!--ANGULAR SMART TABLE-->
+    <script type="text/javascript" src="/assets/vendors/angular-smart-table/dist/smart-table.min.js"></script>
+
     <!-- OUR JAVASCRIPT -->
     <script type="text/javascript" src="/assets/scripts/client.min.js"></script>
 
-
 </head>
 <body>
+    <div class="instructions">
+        <div class="container">
+            <h1 class="lead">Register New User</h1>
+        </div>
+    </div>
 
+    <div class="container">
+        <form action="/register" method="post">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username">
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+            </div>
+
+            <input type="submit" value="Register"/>
+        </form>
+    </div>
 </body>
 </html>

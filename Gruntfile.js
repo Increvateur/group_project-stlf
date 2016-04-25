@@ -57,7 +57,10 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'client/views/',
                 src: [
+                    "failure.html",
                     "index.html",
+                    "register.html",
+                    "user.html",
                     "routes/*.html",
                     "partials/*.html",
                     "templates/*.html"
@@ -81,7 +84,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: "node_modules/jquery/dist/",
                 src: "jquery.min.js",
-                "dest": "server/public/vendor/jquery/"
+                "dest": "server/public/assets/vendors/jquery/"
 
             }
         }
