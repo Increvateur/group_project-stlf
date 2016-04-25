@@ -56,7 +56,10 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'client/views/',
                 src: [
+                    "failure.html",
                     "index.html",
+                    "register.html",
+                    "user.html",
                     "routes/*.html",
                     "partials/*.html",
                     "templates/*.html"
