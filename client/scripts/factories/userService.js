@@ -3,7 +3,7 @@ myApp.factory("STLFModule", ["$http", function($http) {
   var data = {};
 
   var getNames = function() {
-    return $http.get("users/getnames").then(function(response) {
+    return $http.get("/getnames").then(function(response) {
       data.response = response.data;
       return response.data;
     });
@@ -11,7 +11,7 @@ myApp.factory("STLFModule", ["$http", function($http) {
 
   var postNames = function(data) {
     console.log(data);
-    return $http.post("users/postnames", data).then(function(response) {
+    return $http.post("/postnames", data).then(function(response) {
       return getNames();
     });
   };

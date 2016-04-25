@@ -4,7 +4,7 @@ myApp.controller("MainController", ["$scope", "STLFModule", function($scope, STL
 
   $scope.addName = function(data) {
       var postItem = {
-      "firstname": data.firstname
+      "firstname": data.name
       };
 
       STLFModule.postNames(postItem)
