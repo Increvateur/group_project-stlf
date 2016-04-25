@@ -1,0 +1,49 @@
+<div class="home-view container">
+
+
+
+    <table st-table="displayedContacts" st-safe-src="contacts.object" class="table">
+        <thead>
+        <tr>
+            <th st-sort="FirstName">First Name</th>
+            <th st-sort="LastName">Last Name</th>
+            <th st-sort="npe01__Type_of_Account__c">Account Type</th>
+            <th st-sort="npo02__LargestAmount__c">Largest donation</th>
+            <th>email</th>
+        </tr>
+        <tr>
+            <!--<th>-->
+                <!--<input st-search="'firstName'" placeholder="search for firstname" class="input-sm form-control" type="search"/>-->
+            <!--</th>-->
+            <th colspan="4">
+                <input st-search placeholder="global search" class="input-sm form-control" type="search"/>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr st-select-row="person" st-select-mode="single" ng-repeat="person in displayedContacts">
+            <td>{{person.FirstName}}</td>
+            <td>{{person.LastName}}</td>
+            <td>{{person.npe01__Type_of_Account__c}}</td>
+            <td>{{person.npo02__LargestAmount__c | currency}}</td>
+            <td><a ng-href="mailto:{{person.Email}}">email</a></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="5" class="text-center">
+                <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+
+
+
+
+
+
+
+
+
+</div>

@@ -4,3 +4,7 @@
 p{
   color:blue;
 }
+.st-selected {
+  background-color: #003366;
+  color: white;
+}

@@ -10,6 +10,7 @@ var db = require("./modules/db_connect.js");
 // Routes
 var index = require("./routes/index.js");
 var users = require("./routes/users.js");
+var mockData = require("./routes/mockData");
 
 
 //middle-ware
@@ -20,6 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 // routes and server connection
+app.use("/mockData",mockData);
 app.use("/users",users);
 app.use("/", index);
 
