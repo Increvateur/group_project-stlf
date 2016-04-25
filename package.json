@@ -10,6 +10,7 @@
   "author": "Matthew Keymer, Neil Skupa, Riley Harrison, Aaron McGrath, Mark Rothermal",
   "license": "ISC",
   "dependencies": {
+    "amcharts3": "github:amcharts/amcharts3",
     "angular": "^1.5.5",
     "angular-animate": "^1.5.5",
     "angular-route": "^1.5.5",
@@ -18,7 +19,6 @@
     "bootstrap": "^3.3.6",
     "express": "^4.13.4",
     "mongoose": "^4.4.12"
-
   },
   "devDependencies": {
     "grunt": "^1.0.1",
@@ -28,7 +28,5 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "nodemon": "^1.9.1"
-
-
   }
 }

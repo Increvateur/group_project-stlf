@@ -2,7 +2,7 @@
   "_args": [
     [
       "angular@^1.5.5",
-      "/Users/JFCS/Desktop/week16/stlf_group_project"
+      "/Users/Increvateur/Desktop/Temp - Group Project/group_project-stlf"
     ]
   ],
   "_from": "angular@>=1.5.5 <2.0.0",
@@ -36,7 +36,7 @@
   "_shasum": "678fdfd1c9c47368dd202c7fc8bb3bd4dba17c18",
   "_shrinkwrap": null,
   "_spec": "angular@^1.5.5",
-  "_where": "/Users/JFCS/Desktop/week16/stlf_group_project",
+  "_where": "/Users/Increvateur/Desktop/Temp - Group Project/group_project-stlf",
   "author": {
     "email": "angular-core+npm@google.com",
     "name": "Angular Core Team"
@@ -56,20 +56,20 @@
   "homepage": "http://angularjs.org",
   "keywords": [
     "angular",
+    "framework",
     "browser",
-    "client-side",
-    "framework"
+    "client-side"
   ],
   "license": "MIT",
   "main": "index.js",
   "maintainers": [
     {
-      "name": "angularcore",
-      "email": "angular-core+npm@google.com"
+      "email": "angular-core+npm@google.com",
+      "name": "angularcore"
     },
     {
-      "name": "petebd",
-      "email": "pete@bacondarwin.com"
+      "email": "pete@bacondarwin.com",
+      "name": "petebd"
     }
   ],
   "name": "angular",
