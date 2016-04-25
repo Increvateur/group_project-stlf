@@ -4,12 +4,12 @@
 p{
   color:blue;
 }
-<<<<<<< HEAD
+
 .st-selected {
   background-color: #003366;
   color: white;
 }
-=======
+
 
 .instructions .container h1 {
     font-size: 24px;
@@ -52,4 +52,4 @@ p{
 .btn-danger{
     margin-left: 10px;
 }
->>>>>>> c6e2a147702c3ec5e488f1819abcc6bd9b1f6883
+

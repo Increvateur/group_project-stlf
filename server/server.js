@@ -16,8 +16,10 @@ var user = require('./routes/user');
 //var index = require("./modules/index.js");
 var index = require('./routes/index.js');
 
-// App Set //
-app.set("port", (process.env.PORT || 5000));
+// Port //
+var port = process.env.PORT || 5000;
+
+app.use(express.static('server/public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({expanded: true}));
@@ -43,23 +45,11 @@ app.use("/user",user);
 app.use("/", index);
 
 
-//// Mongo Connection //
-//var mongoURI = "mongodb://localhost:27017/user_passport_session";
-////var mongoURI = "";
-//
-//var mongoDB = mongoose.connect(mongoURI).connection;
-//
-//mongoDB.on('error', function(err){
-//   if(err) console.log("MONGO ERROR: ", err);
-//});
-//
-//mongoDB.once('open', function(){
-//   console.log("Connected to Mongo, meow!");
-//});
 
-// Listen //
-app.listen(app.get("port"), function(){
-   console.log("Listening on port: " + app.get("port"));
+// server //
+var server = app.listen(port,function(){
+   var port = server.address().port;
+   console.log('now open on port',port);
 });
 
 module.exports = app;

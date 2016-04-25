@@ -15,11 +15,11 @@ myApp.controller("HomeController", ["$scope", '$filter',"MockService",
         $scope.households = [];
 
         $scope.contacts = mockService.contacts;
-        //mockService.getAccounts();
+        mockService.getAccounts();
         mockService.getContacts();
-        //mockService.getDonations();
-        //mockService.getCampaigns();
-        //mockService.getHouseholds();
+        mockService.getDonations();
+        mockService.getCampaigns();
+        mockService.getHouseholds();
 
 
 
@@ -27,18 +27,6 @@ myApp.controller("HomeController", ["$scope", '$filter',"MockService",
 
 
 
-
-
-        //getAccounts : getAccounts,
-        //    getCampaigns : getCampaigns,
-        //    getContacts : getContacts,
-        //    getDonactions :getDonations,
-        //    getHouseholds : getHouseholds,
-        //    accounts : Accounts,
-        //    contacts : Contacts,
-        //    donations : Donations,
-        //    campaigns: Campaigns,
-        //    households: Households
 
 
 

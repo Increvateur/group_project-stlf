@@ -26,50 +26,16 @@
 
       <!-- OUR JAVASCRIPT -->
     <script type="text/javascript" src="/assets/scripts/client.min.js"></script>
+    <base href="/">
 
   </head>
   <body ng-controller="MainController">
 
     <h1 class="text-center">Group Project - Team STLF</h1>
 
-    <!--<form ng-submit="addName(user)" class="container text-left">-->
-      <!--<div class="form-group ">-->
-        <!--<label for="name-input">Who is working on this project?</label>-->
-          <!--<p></p>-->
-        <!--<input type="text" class="form-control" id="name-input" ng-model="user.firstname" placeholder="Name" required autofocus />-->
-          <!--<p></p>-->
-        <!--<input class="btn btn-default" type="submit" value="Add Name" />-->
-      <!--</div>-->
-    <!--</form>-->
-        <!--<p> LIST OF PEOPLE IN DATABASE</p>-->
-    <!--<div ng-repeat="person in names"class="text-center container well col-sm-3">-->
-     <!--<p >{{ person.firstname }}</p>-->
-    <!--</div>-->
 
 
 
-    <div class="instructions">
-  <div class="container">
-    <h1 class="lead">Passport Login</h1>
-  </div>
-</div>
-<div class="container">
-  <!-- Set form action and method -->
-  <form action="/" method="post">
-    <div>
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username"/>
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password"/>
-    </div>
-    <div>
-      <input type="submit" value="Log In"/>
-      <a href="/register">Register</a>
-    </div>
-  </form>
-</div>
 
 <main ng-view></main>
   </body>
