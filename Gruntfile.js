@@ -19,7 +19,10 @@ module.exports = function(grunt) {
         uglify: {
             build: {
                 src: [
+                    'client/scripts/admin.js',
+                    'client/scripts/app.js',
                     'client/scripts/client.js',
+                    'client/scripts/user.js',
                     'client/scripts/controllers/*.js',
                     'client/scripts/factories/*.js'
                 ],
@@ -56,7 +59,10 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'client/views/',
                 src: [
+                    "failure.html",
                     "index.html",
+                    "register.html",
+                    "user.html",
                     "routes/*.html",
                     "partials/*.html",
                     "templates/*.html"

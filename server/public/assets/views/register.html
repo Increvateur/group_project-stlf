@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+    <link rel="stylesheet" href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/stylesheet.min.css">
+</head>
+<body>
+    <div class="instructions">
+        <div class="container">
+            <h1 class="lead">Register New User</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <form action="/register" method="post">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username">
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+            </div>
+
+            <input type="submit" value="Register"/>
+        </form>
+    </div>
+</body>
+</html>
