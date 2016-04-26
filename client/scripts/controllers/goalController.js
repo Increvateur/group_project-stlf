@@ -9,25 +9,9 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
   $scope.addGoals = {};
 
 
-  // $scope.submit = function(data) {
-  //   console.log('@mainController.js AddUserController data (AKA: addUser: ', data);
-  //   stlfModule.newUser(data);
-  // };
+  $scope.saveGoals = function(data) {
+    console.log('@goalController.js data (AKA: addGoals: ', data);
+    // goalService.newGoals(data);
+  };
 
-  // months: [
-  //   {
-  //     month: 'september',
-  //     goals: {
-  //       staff: '',
-  //       board: ''
-  //     }
-  //   },
-  //   {
-  //     month: 'october',
-  //     goals: {
-  //       staff: '',
-  //       board: ''
-  //     }
-  //   }
-  // ]
 }]);

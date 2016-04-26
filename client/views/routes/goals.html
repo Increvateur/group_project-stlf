@@ -31,7 +31,7 @@
 
 </head>
 <body ng-controller="AddGoalsController">
-  <form name="outerForm" class="tab-september">
+  <form ng-submit=saveGoals(addGoals) name="outerForm" class="tab-september">
     <uib-tabset active="active">
       <uib-tab ng-repeat="month in months track by month" heading="{{month}}">
         {{ $index }} {{ month }}
@@ -60,6 +60,7 @@
           </div>
         </ng-form>
       </uib-tab>
+      <button type="submit" >Save Goals</button>
     </uib-tabset>
   </form>
   Model:
