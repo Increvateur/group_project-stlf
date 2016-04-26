@@ -37,10 +37,26 @@
         {{ $index }} {{ month }}
         <ng-form name="input-goals">
           <div class="form-group">
-            <label>{{ month }} Staff Goal</label>
+            <label>{{ month }} Staff Members Goal</label>
             <input type="text" class="form-control staffgoal" ng-model="addGoals[month].staff" placeholder="{{month}} Staff Goals" />
-            <label>Board</label>
+            <label>Board Members Goal</label>
             <input type="text" class="form-control boardgoal" ng-model="addGoals[month].board" placeholder="{{month}} Board Goals" />
+            <label>Committee Members</label>
+            <input type="text" class="form-control committeegoal" ng-model="addGoals[month].committee" />
+            <label>Parent</label>
+            <input type="text" class="form-control parentgoal" ng-model="addGoals[month].parent" />
+            <label>Alum</label>
+            <input type="text" class="form-control alumgoal" ng-model="addGoals[month].alum" />
+            <label>Participant</label>
+            <input type="text" class="form-control participantgoal" ng-model="addGoals[month].participant" />
+            <label>Community Support</label>
+            <input type="text" class="form-control communitygoal" ng-model="addGoals[month].community" />
+            <label>Corporations</label>
+            <input type="text" class="form-control corporationsgoal" ng-model="addGoals[month].corporations" />
+            <label>Foundations</label>
+            <input type="text" class="form-control foundationsgoal" ng-model="addGoals[month].foundations" />
+            <label>Events</label>
+            <input type="text" class="form-control eventsgoal" ng-model="addGoals[month].events" />
           </div>
         </ng-form>
       </uib-tab>

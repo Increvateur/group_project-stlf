@@ -5,8 +5,7 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
   console.log('HI, @CONTROLLER - AddGoalsController Works!');
 
   var goalService = GoalService;
-  $scope.months = ['september', 'october', 'november', 'december', 'january'];
-  // , 'february', 'march', 'april', 'may', 'june', 'july', 'august'
+  $scope.months = ['september', 'october', 'november', 'december', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august'];
   $scope.addGoals = {};
 
 
