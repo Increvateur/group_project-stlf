@@ -2,7 +2,7 @@
   "_args": [
     [
       "angular@^1.5.5",
-      "/Users/aaronmcgrath/Atom_Projects/group_project_stlf/stlf_working_files/group_project-stlf"
+      "/Users/JFCS/Desktop/week16/stlf_group_project"
     ]
   ],
   "_from": "angular@>=1.5.5 <2.0.0",
@@ -36,7 +36,7 @@
   "_shasum": "678fdfd1c9c47368dd202c7fc8bb3bd4dba17c18",
   "_shrinkwrap": null,
   "_spec": "angular@^1.5.5",
-  "_where": "/Users/aaronmcgrath/Atom_Projects/group_project_stlf/stlf_working_files/group_project-stlf",
+  "_where": "/Users/JFCS/Desktop/week16/stlf_group_project",
   "author": {
     "email": "angular-core+npm@google.com",
     "name": "Angular Core Team"
