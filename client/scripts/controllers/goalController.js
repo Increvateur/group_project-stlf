@@ -9,6 +9,7 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
   // , 'february', 'march', 'april', 'may', 'june', 'july', 'august'
   $scope.addGoals = {};
 
+  
   // $scope.submit = function(data) {
   //   console.log('@mainController.js AddUserController data (AKA: addUser: ', data);
   //   stlfModule.newUser(data);

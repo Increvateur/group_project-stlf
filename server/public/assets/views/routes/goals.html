@@ -33,8 +33,16 @@
 <body ng-controller="AddGoalsController">
   <form name="outerForm" class="tab-september">
     <uib-tabset active="active">
-      <uib-tab index="$index + 1" ng-repeat="month in months" heading="{{month}}" active="tab.active" disable="tab.disabled">
+      <uib-tab index="$index" ng-repeat="month in months" heading="{{month}}" active="tab.active" disable="tab.disabled">
         {{month}}
+        <ng-form name="input-goals">
+          <div class="form-group">
+            <label>{{ month }} Staff Goal</label>
+            <input type="text" class="form-control staffgoal" ng-model="addGoals.staff" placeholder="{{month}}" />
+            <label>Board</label>
+            <input type="text" class="form-control boardgoal" ng-model="addGoals.value"/>
+          </div>
+        </ng-form>
       </uib-tab>
     </uib-tabset>
   </form>
@@ -46,13 +54,6 @@
 
 <!-- <uib-tabset active="activeForm">
 <uib-tab index="0" heading="{{month}}">
-<ng-form name="input-goals">
-<div class="form-group">
-<label>Staff</label>
-<input type="text" class="form-control staffgoal" ng-model="addGoals.staff"/>
-<label>Board</label>
-<input type="text" class="form-control boardgoal" ng-model="addGoals.board"/>
-</div>
-</ng-form>
+
 </uib-tab>
 </uib-tabset> -->
