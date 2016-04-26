@@ -17,3 +17,4 @@ myApp.config(['$routeProvider','$locationProvider',function($routeProvider,$loca
 
         $locationProvider.html5Mode(true);
     }]);
+

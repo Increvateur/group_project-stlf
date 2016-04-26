@@ -29,7 +29,14 @@
     <base href="/">
 
   </head>
-  <body ng-controller="MainController">
+  <body>
+
+  <div class="instructions" ng-controller="UserController">
+      <div class="container">
+          <h1 id="welcome" class="lead">Welcome, {{userName}}!</h1>
+      </div>
+  </div>
+     <div  ng-controller="MainController">
 
     <h1 class="text-center">Group Project - Team STLF</h1>
 
@@ -37,6 +44,7 @@
 
 
 
-<main ng-view></main>
+        <main ng-view></main>
+     </div>
   </body>
 </html>

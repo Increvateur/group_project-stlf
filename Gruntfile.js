@@ -73,10 +73,7 @@ module.exports = function(grunt) {
                 cwd: "node_modules/bootstrap/",
                 src: [
                     "dist/**/*"
-                    //"css/bootstrap.min.css",
-                    //"css/bootstrap.min.css.map",
-                    //"css/bootstrap.",
-                    //"js/bootstrap.min.js"
+
                 ],
                 "dest": "server/public/assets/vendors/bootstrap/"
             },

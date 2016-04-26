@@ -1,4 +1,4 @@
-myApp.factory("STLFModule", ["$http", function($http) {
+myApp.factory("UserService", ["$http", function($http) {
 
   var data = {};
 
