@@ -19,14 +19,8 @@
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
     "express": "^4.13.4",
-<<<<<<< HEAD
     "mongoose": "^4.4.12",
     "express-session": "^1.13.0",
-=======
-    "express-session": "^1.13.0",
-    "jquery": "^2.2.3",
-    "mongoose": "^4.4.12",
->>>>>>> dff27c6bab10b050dfb243b612ad54d84fe4a9f9
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path": "^0.12.7"
@@ -37,11 +31,6 @@
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
-<<<<<<< HEAD
     "grunt-contrib-watch": "^1.0.0"
-=======
-    "grunt-contrib-watch": "^1.0.0",
-    "nodemon": "^1.9.1"
->>>>>>> dff27c6bab10b050dfb243b612ad54d84fe4a9f9
   }
 }
