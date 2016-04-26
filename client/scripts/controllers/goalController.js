@@ -11,7 +11,7 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
 
   $scope.saveGoals = function(data) {
     console.log('@goalController.js data (AKA: addGoals: ', data);
-    // goalService.newGoals(data);
+    goalService.newGoals(data);
   };
 
 }]);
