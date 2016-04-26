@@ -1,5 +1,5 @@
-myApp.controller("MainController", ["$scope", "STLFModule", function($scope, STLFModule) {
-
+myApp.controller("MainController", ["$scope", "UserService", function($scope, UserService) {
+  var userService = UserService;
 
   //  $scope.names=[];
   //
@@ -24,15 +24,4 @@ myApp.controller("MainController", ["$scope", "STLFModule", function($scope, STL
 
 }]);
 
-myApp.controller('AddUserController', ['$scope', 'STLFModule', function($scope, STLFModule) {
 
-  console.log('AddUserController Works!');
-
-  var stlfModule = STLFModule;
-  $scope.addUser = {};
-
-  $scope.submit = function(data) {
-    console.log('@mainController.js AddUserController data (AKA: addUser: ', data);
-    stlfModule.newUser(data);
-  };
-}]);

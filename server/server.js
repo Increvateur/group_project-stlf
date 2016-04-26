@@ -36,8 +36,21 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Passport Session Configuration //
+app.use(session({
+   secret: 'secret',
+   key: 'user',
+   resave: 'true',
+   saveUninitialized: false,
+   cookie: {maxage: 60000, secure: false}
+}));
+
+// start up passport sessions
+app.use(passport.initialize());
+app.use(passport.session());
 
 // routes and server connection
+
 
 app.use('/register', register);
 app.use("/mockData",mockData);
@@ -50,6 +63,7 @@ app.use("/", index);
 var server = app.listen(port,function(){
    var port = server.address().port;
    console.log('now open on port',port);
+
 });
 
 module.exports = app;

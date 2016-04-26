@@ -57,10 +57,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'client/views/',
                 src: [
-                    "failure.html",
                     "index.html",
-                    "register.html",
-                    "user.html",
                     "routes/*.html",
                     "partials/*.html",
                     "templates/*.html"
@@ -73,10 +70,7 @@ module.exports = function(grunt) {
                 cwd: "node_modules/bootstrap/",
                 src: [
                     "dist/**/*"
-                    //"css/bootstrap.min.css",
-                    //"css/bootstrap.min.css.map",
-                    //"css/bootstrap.",
-                    //"js/bootstrap.min.js"
+
                 ],
                 "dest": "server/public/assets/vendors/bootstrap/"
             },
