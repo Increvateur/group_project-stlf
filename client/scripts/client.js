@@ -1,9 +1,9 @@
 
-var myApp = angular.module("myApp", ["ngRoute", "ngAnimate", "ui.bootstrap",'smart-table']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap','smart-table']);
 
 
 
-myApp.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider) {
+myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
 
         $routeProvider
@@ -19,5 +19,6 @@ myApp.config(['$routeProvider','$locationProvider',function($routeProvider,$loca
                 redirectTo: '/'
             });
 
-        //$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
+
     }]);

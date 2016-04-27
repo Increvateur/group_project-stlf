@@ -1,9 +1,19 @@
-/**
- * Created by JFCS on 4/21/16.
- */
-var express = require("express");
+var express = require('express');
 var router = express.Router();
-var User = require("../models/users.js");
+var passport = require('passport');
+var User = require("../models/user.js");
+
+
+router.get('/', function(req, res) {
+    // check if logged in
+    if(req.isAuthenticated()) {
+        // send back user object from database
+        res.send(req.user);
+    } else {
+        // failure best handled on the server. do redirect here.
+        res.send(false);
+    }
+});
 
 router.get("/getnames", function(req, res){
     User.find({}, function(err, data){
@@ -15,11 +25,11 @@ router.get("/getnames", function(req, res){
 });
 
 router.post("/postnames", function (req, res) {
-  var request = req.body;
+    var request = req.body;
     console.log(request);
     var newUser = new User({ 'firstname' : request.firstname, 'lastname' : request.lastname,
-    'email' : request.email, 'username' : request.username, 'password' : request.password,
-    'role' : request.role, 'default_view' : request.default_view });
+        'email' : request.email, 'username' : request.username, 'password' : request.password,
+        'role' : request.role, 'default_view' : request.default_view });
     newUser.save(function(err, data) {
         if (err) {
             console.log("Error Saving Names to Database", err);

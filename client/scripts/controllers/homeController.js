@@ -2,6 +2,8 @@
  * Created by JFCS on 4/22/16.
  */
 myApp.controller("HomeController", ["$scope", '$filter',"MockService",
+    // testing data for front end practice.
+
     function($scope,$filter,MockService) {
 
         var mockService = MockService;
@@ -29,18 +31,6 @@ myApp.controller("HomeController", ["$scope", '$filter',"MockService",
 
 
 
-
-
-        //getAccounts : getAccounts,
-        //    getCampaigns : getCampaigns,
-        //    getContacts : getContacts,
-        //    getDonactions :getDonations,
-        //    getHouseholds : getHouseholds,
-        //    accounts : Accounts,
-        //    contacts : Contacts,
-        //    donations : Donations,
-        //    campaigns: Campaigns,
-        //    households: Households
 
 
 

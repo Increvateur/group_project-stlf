@@ -79,7 +79,6 @@ module.exports = function(grunt) {
                     "amcharts/*/*"
                 ],
                 "dest": "server/public/assets/vendors/"
-
             }
         }
 

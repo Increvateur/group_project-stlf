@@ -1,4 +1,5 @@
-myApp.controller("MainController", ["$scope", "STLFModule", function($scope, STLFModule) {
+myApp.controller("MainController", ["$scope", "UserService", function($scope, UserService) {
+  var userService = UserService;
 
   //  $scope.names=[];
   //
@@ -20,4 +21,7 @@ myApp.controller("MainController", ["$scope", "STLFModule", function($scope, STL
   //    console.log("Names Retrieved!", $scope.names);
   //  });
 
+
 }]);
+
+
