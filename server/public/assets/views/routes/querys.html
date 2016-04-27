@@ -31,8 +31,11 @@
 
 </head>
 <body ng-controller="QueryController">
-  <h1>Query Sandbox</h1>
-  <div ng-repeat="(key, value) in forceData.response">
+    <h1>Query Sandbox</h1>
+    <!--<div ng-repeat="(key, value) in forceData.response">-->
+
+    <div ng-repeat="(key, value) in forceData.arrResults">
+
     <p>
         {{ key}}
         {{ value}}

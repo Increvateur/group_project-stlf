@@ -12,12 +12,16 @@ myApp.controller('QueryController', ['$scope', 'QueryService', function($scope, 
     var queryService = queryService;
 
     QueryService.getSalesforce();
-    
+
     $scope.data = QueryService.data;
 
     $scope.forceData = QueryService.forceData;
     console.log("forcedata", QueryService.forceData);
+    console.log("forcedata arrResults", QueryService.forceData.arrResults);
+
     $scope.forceresponse = QueryService.forceresponse;
+
+
 
 
 

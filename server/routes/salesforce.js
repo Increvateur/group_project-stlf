@@ -64,6 +64,37 @@ router.get("/pull", function (req, res) {
 
 });
 
+router.get("/fetch", function (req, res) {
+
+    // console.log("HEY HEY HEY In FETCH on the serve, and req.params=", req.query.instanceUrl, req.query.accessToken);
+    console.log("HEY HEY HEY In FETCH on the serve, and req.params strSql=", req.query.strSql);
+
+
+  var conn = new jsforce.Connection({
+      instanceUrl : req.query.instanceUrl,
+      accessToken : req.query.accessToken
+  });
+
+  var strSql = req.query.strSql;
+
+  console.log("Connected?");
+
+
+
+
+
+  conn.query(strSql, function(err, result) {
+      if (err) { return console.error(err); }
+      console.log("total : " + result.totalSize);
+      console.log("fetched : " + result.records.length);
+      res.status(200).send(result);
+
+    });
+
+
+
+});
+
 
 
 router.get("/force", function (req, res) {
@@ -95,35 +126,9 @@ router.get("/force", function (req, res) {
 
     res.status(200).send(creds);
 
-    // var query = 'SELECT id, name FROM account LIMIT 10';
-    //
-    //
-    // conn.query(query, function(err, result) {
-    //     console.log("total : " + result.totalSize);
-    //     console.log("fetched : " + result.records.length);
-    //     res.status(200).send(result);
-    //
-    //   });
 
-
-
-
-
-
-    // res.send('JSForce Connect Successed!', creds);
   });
 
 });
-
-
-
-
-
-
-
-// copied in for Villains TODO remove Movie code above
-
-
-
 
 module.exports = router;
