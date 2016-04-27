@@ -6,7 +6,7 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
 
   var goalService = GoalService;
   $scope.months = ['september', 'october', 'november', 'december', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august'];
-  $scope.addGoals = {
+  $scope.goals = {
     months : [
       {
         name: 'September',
@@ -58,11 +58,11 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
       }
     ]
   };
-  $scope.year = '';
+  $scope.fiscalyear = '';
 
 
   $scope.saveGoals = function(data) {
-    console.log('@goalController.js data (AKA: addGoals: ', data);
+    console.log('@goalController.js data (AKA: goals: ', data);
     goalService.newGoals(data);
   };
 
