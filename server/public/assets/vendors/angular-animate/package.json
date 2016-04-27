@@ -2,7 +2,7 @@
   "_args": [
     [
       "angular-animate@^1.5.5",
-      "/Users/JFCS/Desktop/week16/stlf_group_project"
+      "/Users/Riley/Desktop/assignments/groupProjectSTLF/team_stlf_salesforce_test"
     ]
   ],
   "_from": "angular-animate@>=1.5.5 <2.0.0",
@@ -36,7 +36,7 @@
   "_shasum": "6641ba517d37b8158578d99178e1e9a6bed19b75",
   "_shrinkwrap": null,
   "_spec": "angular-animate@^1.5.5",
-  "_where": "/Users/JFCS/Desktop/week16/stlf_group_project",
+  "_where": "/Users/Riley/Desktop/assignments/groupProjectSTLF/team_stlf_salesforce_test",
   "author": {
     "email": "angular-core+npm@google.com",
     "name": "Angular Core Team"
