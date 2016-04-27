@@ -17,6 +17,8 @@ myApp.controller("HomeController", ["$scope", '$filter',"MockService",
         $scope.contacts = mockService.contacts;
         //mockService.getAccounts();
         mockService.getContacts();
+
+        console.log($scope.contacts);
         //mockService.getDonations();
         //mockService.getCampaigns();
         //mockService.getHouseholds();

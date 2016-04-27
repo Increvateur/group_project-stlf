@@ -8,3 +8,6 @@ p{
   background-color: #003366;
   color: white;
 }
+.amchart-link:hover {
+  text-decoration: none;
+}

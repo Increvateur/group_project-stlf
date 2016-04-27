@@ -76,7 +76,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: "node_modules/amcharts3/",
                 src: [
-                    "amcharts/*"
+                    "amcharts/*/*"
                 ],
                 "dest": "server/public/assets/vendors/"
 
