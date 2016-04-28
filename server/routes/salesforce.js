@@ -76,18 +76,22 @@ router.get("/fetch", function (req, res) {
   });
 
   var strSql = req.query.strSql;
+  var myQuery = req.query.queryInfo;
 
   console.log("Connected?");
-
-
-
-
 
   conn.query(strSql, function(err, result) {
       if (err) { return console.error(err); }
       console.log("total : " + result.totalSize);
       console.log("fetched : " + result.records.length);
-      res.status(200).send(result);
+    //   console.log("records : " + result.data.records);
+
+      var objRow = {
+          count: result.totalSize,
+          queryInfo : myQuery,
+          result: result
+      }
+      res.status(200).send(objRow);
 
     });
 
