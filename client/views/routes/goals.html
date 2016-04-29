@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Group Project - Team STLF</title>
+
+  <!-- STYLES -->
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/vendors/bootstrap/dist/css/bootstrap-theme.min.css" />
+  <!-- ANGULAR UI BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" />
+  <!-- OUR CSS -->
+  <link rel="stylesheet" href="/assets/styles/stylesheet.min.css" />
+
+
+  <!-- SCRIPTS -->
+  <!-- ANGULAR -->
+  <script type="text/javascript" src="/assets/vendors/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/assets/vendors/angular-route/angular-route.min.js"></script>
+  <script type="text/javascript" src="/assets/vendors/angular-animate/angular-animate.min.js"></script>
+  <!-- ANGULAR UI BOOTSTRAP -->
+  <script type="text/javascript" src="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+  <script type="text/javascript" src="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+  <!--ANGULAR SMART TABLE-->
+  <script type="text/javascript" src="/assets/vendors/angular-smart-table/dist/smart-table.min.js"></script>
+
+  <!-- OUR JAVASCRIPT -->
+  <script type="text/javascript" src="/assets/scripts/client.min.js"></script>
+  <base href="/">
+
+</head>
+<body ng-controller="AddGoalsController">
+  <form ng-submit=saveGoals(addGoals) name="outerForm" class="tab-september">
+    <uib-tabset active="active">
+      <uib-tab ng-repeat="month in months track by month" heading="{{month}}">
+        {{ $index }} {{ month }}
+        <ng-form name="input-goals">
+          <div class="form-group">
+            <label>{{ month }} Staff Members Goal</label>
+            <input type="text" class="form-control staffgoal" ng-model="addGoals[month].staff" placeholder="{{month}} Staff Goals" />
+            <label>Board Members Goal</label>
+            <input type="text" class="form-control boardgoal" ng-model="addGoals[month].board" placeholder="{{month}} Board Goals" />
+            <label>Committee Members</label>
+            <input type="text" class="form-control committeegoal" ng-model="addGoals[month].committee" />
+            <label>Parent</label>
+            <input type="text" class="form-control parentgoal" ng-model="addGoals[month].parent" />
+            <label>Alum</label>
+            <input type="text" class="form-control alumgoal" ng-model="addGoals[month].alum" />
+            <label>Participant</label>
+            <input type="text" class="form-control participantgoal" ng-model="addGoals[month].participant" />
+            <label>Community Support</label>
+            <input type="text" class="form-control communitygoal" ng-model="addGoals[month].community" />
+            <label>Corporations</label>
+            <input type="text" class="form-control corporationsgoal" ng-model="addGoals[month].corporations" />
+            <label>Foundations</label>
+            <input type="text" class="form-control foundationsgoal" ng-model="addGoals[month].foundations" />
+            <label>Events</label>
+            <input type="text" class="form-control eventsgoal" ng-model="addGoals[month].events" />
+          </div>
+        </ng-form>
+      </uib-tab>
+      <button type="submit" >Save Goals</button>
+    </uib-tabset>
+  </form>
+  Model:
+  <pre>{{ addGoals | json }}</pre>
+</body>
+</html>
+
+
+<!-- <uib-tabset active="activeForm">
+<uib-tab index="0" heading="{{month}}">
+
+</uib-tab>
+</uib-tabset> -->

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Group Project - Team STLF</title>
+
+    <!-- STYLES -->
+      <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/bootstrap/dist/css/bootstrap-theme.min.css" />
+      <!-- ANGULAR UI BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" />
+      <!-- OUR CSS -->
+    <link rel="stylesheet" href="/assets/styles/stylesheet.min.css" />
+
+    <!-- SCRIPTS -->
+      <!-- ANGULAR -->
+    <script type="text/javascript" src="/assets/vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/assets/vendors/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/assets/vendors/angular-animate/angular-animate.min.js"></script>
+      <!-- ANGULAR UI BOOTSTRAP -->
+    <script type="text/javascript" src="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <!--ANGULAR SMART TABLE-->
+    <script type="text/javascript" src="/assets/vendors/angular-smart-table/dist/smart-table.min.js"></script>
+
+      <!-- OUR JAVASCRIPT -->
+    <script type="text/javascript" src="/assets/scripts/client.min.js"></script>
+    <base href="/">
+
+  </head>
+  <body>
+
+    <!-- fixed navbar example from bootstrap site https://getbootstrap.com/components/#navbar -->
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar-header">
+        <!-- navbar collapse to menu bar-->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#home">STLF</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right" >
+
+          <li><a href="#add">LOGIN</a></li>
+          <!-- <button ng-click = "/logOut">logout</button>
+          <button ng-click = "/logout">logout</button> -->
+          <li><a href="/logout">LOGOUT</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- end fixed navbar -->
+
+<!-- passport user loged in -->
+  <div class="instructions" ng-controller="UserController">
+      <div class="container">
+          <h1 id="welcome" class="lead">Welcome, {{userName}}!</h1>
+      </div>
+  </div>
+     <div  ng-controller="MainController">
+
+    <h1 class="text-center">Group Project - Team STLF</h1>
+
+        <main ng-view></main>
+     </div>
+  </body>
+</html>
+<!-- end passport user loged in -->

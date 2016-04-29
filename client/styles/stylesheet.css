@@ -1,0 +1,134 @@
+.form-group {
+  width: 20%;
+}
+p{
+  color:blue;
+}
+
+.st-selected {
+  background-color: #003366;
+  color: white;
+}
+
+/*start user authentication styles*/
+.instructions .container h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.instructions {
+    background-color: #333333;
+    color: #DDDDDD;
+}
+
+#entryForm {
+    margin-top: 14px;
+}
+
+#container {
+    margin-top: 10px;
+}
+
+.container p{
+    margin-top : 14px;
+}
+
+.message {
+    padding: 10px 0;
+}
+
+.message p {
+    margin-left: 10px;
+}
+
+.message:nth-child(odd) {
+     background-color: #eeeeee;
+}
+
+.message:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.btn-danger{
+    margin-left: 10px;
+}
+/*end user authentication styles*/
+
+/*start navbar styles*/
+.red {
+  background-color: red;
+}
+
+body {
+  padding-top: 70px;
+  padding-bottom: 750px;
+}
+
+.navbar-default {
+  background-color: brown;
+  color: white;
+  border: none;
+  font-size: 20px;
+}
+
+.navbar-default .navbar-brand {
+  color: orange;
+  float: left;
+  height: 52px;
+  padding: 15px 25px;
+  font-size: 20px;
+  font-size: 125%;
+  font-weight: 700;
+  letter-spacing: .03em;
+  line-height: 20px;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: black;
+}
+
+.navbar-default .navbar-nav > li:hover,
+.navbar-default .navbar-nav > li:active,
+.navbar-default .navbar-nav > li:focus {
+  border-bottom: 4px solid black;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: orange;
+  -webkit-transition: all 0.15s ease-out 0s;
+  -moz-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:active,
+.navbar-default .navbar-nav > li > a:focus {
+  color:black;
+}
+
+.navbar-default .navbar-toggle {
+  border: none;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: orange;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: black
+}
+
+.navbar-default .navbar-collapse {
+  border-color: orange;
+}
+
+.navbar-right {
+  position: absolute;
+  right: 2rem;
+}
+
+.nav > li {
+  cursor: pointer;
+  padding: 0 .25em; }
+/*end navbar styles*/
