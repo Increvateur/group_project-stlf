@@ -25,15 +25,8 @@ myApp.factory("QueryService", ["$http", function($http) {
     // ytd is 1 sep before end date -1 year
     var strSql = "";
 
-    var myDate = new Date();
-    var startDate = new Date("09-01-2015");
-    var endDate = new Date("08-31-2016");
 
-    if (myDate.between(startDate, endDate)){
-        console.log("It is in the year!!!");
-    }
-
-    var selEndDate = new Date("11-04-2015");
+    var selEndDate = new Date("03-15-2015");
 
     var ytdStart = new Date();
     var ytdEnd = new Date();
@@ -46,29 +39,66 @@ myApp.factory("QueryService", ["$http", function($http) {
     var fyM2Start = new Date();
     var fyM2End = new Date();
 
-    ytdEnd = selEndDate;
+
+    ytdEnd = new Date(selEndDate);
+
 
     // ytd start - figure out fiscal year start previous to this date
-    ytdStart =  new Date("09-01-" + selEndDate.getFullYear());
+    ytdStart =  new Date("09/01/" + selEndDate.getFullYear());
+
 
 
     if (ytdStart > ytdEnd){
-        ytdStart = new Date("09-01-" + (selEndDate.getFullYear()-1));
-
+        ytdStart = new Date("09/01/" + (selEndDate.getFullYear()-1));
     }
 
-    ytdM1Start = ytdStart.add({"years":-1});
-    ytdM2Start = ytdStart.add({"years":-2});
-    ytdM1End = ytdEnd.add({"years":-1});
-    ytdM2End = ytdEnd.add({"years":-2});
+
+
+    ytdM1Start = new Date(ytdStart);
+    ytdM1Start.add({"years":-1});
+
+    ytdM2Start = new Date(ytdStart);
+    ytdM2Start.add({"years":-2});
+
+
+    ytdM1End = new Date(ytdEnd);
+    ytdM1End.add({"years":-1});
+
+    ytdM2End = new Date(ytdEnd);
+    ytdM2End.add({"years":-2});
+
+
+
+
 
     //fiscal year start and end, first full fiscal year before end date
 
+    fyM1End = new Date("08/31/" + selEndDate.getFullYear());
 
+    if (fyM1End > selEndDate){
+        fyM1End = new Date("08/31/" + (selEndDate.getFullYear()-1));
 
-    console.log("ytdStart is = ", ytdM1Start);
+    }
+    // one year PRIOR
+    fyM2End = new Date(fyM1End);
+    fyM2End.add({"years":-1});
 
+    fyM1Start = new Date(ytdM1Start);
+    fyM2Start = new Date(ytdM2Start);
 
+    console.log("selEndDate", selEndDate);
+
+    console.log("ytdStart", ytdStart);
+    console.log("ytdEnd", ytdEnd);
+    console.log("ytdM1Start", ytdM1Start);
+    console.log("ytdM1End", ytdM1End);
+    console.log("ytdM2Start", ytdM2Start);
+    console.log("ytdM2End", ytdM2End);
+    console.log("fyM1Start", fyM1Start);
+
+    console.log("fyM1End", fyM1End);
+    console.log("fyM2Start", fyM2Start);
+    console.log("fyM2End", fyM2End);
 
 
 
