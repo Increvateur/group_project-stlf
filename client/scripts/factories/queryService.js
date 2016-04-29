@@ -261,10 +261,11 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     // TODO current retained donors. They donated this fiscal year and either of the previous two.
 
-    strSql = "SELECT  AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM'  AND  CloseDate >= " + ytdStart + " AND CloseDate <= " + ytdEnd ;
-    strSql += " GROUP BY AccountId";
+    strSql = "SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= 2015-09-01 AND CloseDate <= 2015-12-31 ";
+    strSql += "AND ((CloseDate >= 2014-09-01 AND CloseDate <= 2015-08-31) OR (CloseDate >= 2013-09-01 AND CloseDate <= 2014-08-31)) GROUP BY AccountId";
 
-    sqlObj = {query:"working on Current retained donors", sql: strSql};
+
+    sqlObj = {query:"*** working on Current retained donors", sql: strSql};
 
     arrSql.push(sqlObj);
 
