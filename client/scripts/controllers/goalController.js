@@ -5,6 +5,7 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
   console.log('HI, @CONTROLLER - AddGoalsController Works!');
 
   var goalService = GoalService;
+<<<<<<< HEAD
   $scope.goals = {};
   // $scope.months = ['september', 'october', 'november', 'december', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august'];
   $scope.monthsObj = {
@@ -77,6 +78,14 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
     // console.log('## @goalController in saveGoals - $scope.key, data: ', $scope.key, data);
     // addGoals[$scope.key] = data;
     console.log('! @goalController in saveGoals - data: ', data);
+=======
+  $scope.months = ['september', 'october', 'november', 'december', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august'];
+  $scope.addGoals = {};
+
+
+  $scope.saveGoals = function(data) {
+    console.log('@goalController.js data (AKA: addGoals: ', data);
+>>>>>>> 40980157c704ba7401ab7889fcc9203ad8642a76
     goalService.newGoals(data);
   };
 
