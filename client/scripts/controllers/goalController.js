@@ -61,20 +61,22 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
   };
   $scope.fiscalyear = '';
 
-  // $scope.addFyKey = function(year) {
-  //   $scope.fiscalyear = year;
-  //   return $scope.fiscalyear;
-  // };
+  $scope.addFyKey = function(year) {
+    $scope.fiscalyear = year;
+    return $scope.fiscalyear;
+  };
 
   // console.log('~ @goalController after addFyKey - $scope.goals: ', $scope.goals);
 
   $scope.saveGoals = function(data) {
+    var addGoals = {};
     console.log('@goalController.js data (AKA: goals: ', data);
+    console.log('@goalController.js fiscalyear: ', $scope.fiscalyear);
 
 
-    $scope.key = data.fiscalyear;
-    console.log('## @goalController in saveGoals - $scope.key, data: ', $scope.key, data);
-    data[$scope.key] = data.months;
+    // $scope.key = $scope.fiscalyear;
+    // console.log('## @goalController in saveGoals - $scope.key, data: ', $scope.key, data);
+    // addGoals[$scope.key] = data;
     console.log('! @goalController in saveGoals - data: ', data);
     goalService.newGoals(data);
   };
