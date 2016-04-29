@@ -11,6 +11,10 @@ myApp.config(['$routeProvider','$locationProvider',function($routeProvider,$loca
                 templateUrl: 'assets/views/templates/home.html',
                 controller: 'HomeController'
             })
+            .when('/querys', {
+                templateUrl: 'assets/views/routes/querys.html',
+                controller: 'queryController'
+            })
             .otherwise({
                 redirectTo: '/'
             });

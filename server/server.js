@@ -15,6 +15,9 @@ var register = require('./routes/register');
 var user = require('./routes/user');
 //var index = require("./modules/index.js");
 var index = require('./routes/index.js');
+var salesforce = require('./routes/salesforce.js');
+
+var dateutils = require("date-utils");
 
 // Port //
 var port = process.env.PORT || 5000;
@@ -51,7 +54,7 @@ app.use(passport.session());
 
 // routes and server connection
 
-
+app.use('/salesforce', salesforce);
 app.use('/register', register);
 app.use("/mockData",mockData);
 app.use("/user",user);
