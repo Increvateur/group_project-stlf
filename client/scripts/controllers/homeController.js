@@ -29,7 +29,7 @@ myApp.controller("HomeController", ["$scope", "$filter", "MockService", "$uibMod
 
             var modalInstance = $uibModal.open({
               animation: true,
-              templateUrl: './assets/views/templates/chartContent.html',
+              templateUrl: './assets/views/routes/chartContent.html',
               controller: 'ChartContentController',
               size: size,
               keyboard: true,

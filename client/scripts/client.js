@@ -11,9 +11,9 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
                 templateUrl: 'assets/views/templates/home.html',
                 controller: 'HomeController'
             })
-            .when('/charts', {
-                templateUrl: 'assets/views/templates/charts.html',
-                controller: 'ChartController'
+            .when('/querys', {
+                templateUrl: 'assets/views/routes/querys.html',
+                controller: 'queryController'
             })
             .otherwise({
                 redirectTo: '/'
