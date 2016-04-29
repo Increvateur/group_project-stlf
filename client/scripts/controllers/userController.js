@@ -14,7 +14,6 @@ myApp.controller('UserController', ['$scope', '$http', '$window', function($scop
             $window.location.href = '/index.html';
         }
     });
-<<<<<<< HEAD
     // $scope.logOut = function(){
     //     console.log("in the app, logout?");
     //     $http.get('/index/logout').then(function(response) {
@@ -22,6 +21,3 @@ myApp.controller('UserController', ['$scope', '$http', '$window', function($scop
     //     });
     // };
 }]);
-=======
-}]);
->>>>>>> d7f010cba46c9d4dca3b3b04301998c3414736ed

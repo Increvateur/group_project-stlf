@@ -2,11 +2,7 @@
   "_args": [
     [
       "angular-animate@^1.5.5",
-<<<<<<< HEAD
       "/Users/Neil/Desktop/group_project-stlf-master 2"
-=======
-      "/Users/Riley/Desktop/assignments/groupProjectSTLF/team_stlf_salesforce_test"
->>>>>>> d7f010cba46c9d4dca3b3b04301998c3414736ed
     ]
   ],
   "_from": "angular-animate@>=1.5.5 <2.0.0",
@@ -40,11 +36,7 @@
   "_shasum": "6641ba517d37b8158578d99178e1e9a6bed19b75",
   "_shrinkwrap": null,
   "_spec": "angular-animate@^1.5.5",
-<<<<<<< HEAD
   "_where": "/Users/Neil/Desktop/group_project-stlf-master 2",
-=======
-  "_where": "/Users/Riley/Desktop/assignments/groupProjectSTLF/team_stlf_salesforce_test",
->>>>>>> d7f010cba46c9d4dca3b3b04301998c3414736ed
   "author": {
     "email": "angular-core+npm@google.com",
     "name": "Angular Core Team"

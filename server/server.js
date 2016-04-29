@@ -15,18 +15,13 @@ var register = require('./routes/register');
 var user = require('./routes/user');
 //var index = require("./modules/index.js");
 var index = require('./routes/index.js');
-<<<<<<< HEAD
-
-// Port //
-var port = process.env.PORT || 7800;
-=======
-var salesforce = require('./routes/salesforce.js');
-
-var dateutils = require("date-utils");
 
 // Port //
 var port = process.env.PORT || 5000;
->>>>>>> d7f010cba46c9d4dca3b3b04301998c3414736ed
+
+var salesforce = require('./routes/salesforce.js');
+
+var dateutils = require("date-utils");
 
 app.use(express.static('server/public'));
 
@@ -60,11 +55,7 @@ app.use(passport.session());
 
 // routes and server connection
 
-<<<<<<< HEAD
-
-=======
 app.use('/salesforce', salesforce);
->>>>>>> d7f010cba46c9d4dca3b3b04301998c3414736ed
 app.use('/register', register);
 app.use("/mockData",mockData);
 app.use("/user",user);
