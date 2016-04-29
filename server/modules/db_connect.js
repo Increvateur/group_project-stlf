@@ -1,5 +1,4 @@
 var mongoose = require("mongoose");
-
 var mongoURI = "mongodb://localhost/stlf";
 var MongoDB = mongoose.connect(mongoURI).connection;
 

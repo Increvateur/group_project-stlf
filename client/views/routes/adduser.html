@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Group Project - Team STLF</title>
+
+    <!-- STYLES -->
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <!-- ANGULAR UI BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" />
+    <!-- OUR CSS -->
+    <link rel="stylesheet" href="/assets/styles/stylesheet.min.css" />
+
+    <!-- SCRIPTS -->
+    <!-- ANGULAR -->
+    <script type="text/javascript" src="/assets/vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/assets/vendors/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/assets/vendors/angular-animate/angular-animate.min.js"></script>
+    <!-- ANGULAR UI BOOTSTRAP -->
+    <script type="text/javascript" src="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <!-- OUR JAVASCRIPT -->
+    <script type="text/javascript" src="/assets/scripts/client.min.js"></script>
+    <!--ANGULAR SMART TABLE-->
+    <script type="text/javascript" src="/assets/vendors/angular-smart-table/dist/smart-table.min.js"></script>
+
+
+</head>
+<body ng-controller="AddUserController">
+  <div class="container">
+    <form ng-submit="submit(addUser)" role="form">
+      <div class="form-inline">
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input ng-model="addUser.firstname" id="firstname" type="firstname" class="form-control" placeholder="First Name" />
+        </div>
+
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input ng-model="addUser.lastname" id="lastname" type="lastname" class="form-control" placeholder="Last Name" />
+        </div>
+      </div>
+
+      <div class="form-inline">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input ng-model="addUser.email" id="email" type="email" class="form-control" placeholder="Email" />
+        </div>
+
+        <div class="form-group">
+          <label for="role">Role</label>
+          <input ng-model="addUser.role" id="role" type="role" class="form-control" placeholder="Role" />
+        </div>
+      </div>
+
+      <div class="form-inline">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input ng-model="addUser.username" id="username" type="username" class="form-control" placeholder="Username" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input ng-model="addUser.password" id="password" type="password" class="form-control" placeholder="Password" />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default submit">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>

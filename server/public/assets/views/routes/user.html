@@ -18,44 +18,23 @@
     <script type="text/javascript" src="/assets/vendors/angular/angular.min.js"></script>
     <script type="text/javascript" src="/assets/vendors/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="/assets/vendors/angular-animate/angular-animate.min.js"></script>
-    <!-- AMCHARTS -->
-    <script type="text/javascript" src="/assets/vendors/amcharts/amcharts.js"></script>
-    <script type="text/javascript" src="/assets/vendors/amcharts/pie.js"></script>
-    <script type="text/javascript" src="/assets/vendors/amcharts/serial.js"></script>
     <!-- ANGULAR UI BOOTSTRAP -->
     <script type="text/javascript" src="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
     <script type="text/javascript" src="/assets/vendors/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <!--ANGULAR SMART TABLE-->
+    <script type="text/javascript" src="/assets/vendors/angular-smart-table/dist/smart-table.min.js"></script>
+
     <!-- OUR JAVASCRIPT -->
     <script type="text/javascript" src="/assets/scripts/client.min.js"></script>
-    <base href="/">
+
 
 
 </head>
-<body ng-controller="MainController">
-
-<div class="instructions">
-    <div class="container">
-        <h1 class="lead">Passport Login</h1>
+<body>
+    <div class="instructions">
+        <div class="container">
+            <h1 id="welcome" class="lead">Welcome!</h1>
+        </div>
     </div>
-</div>
-<div class="container">
-    <!-- Set form action and method -->
-    <form action="/" method="post">
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username"/>
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password"/>
-        </div>
-        <div>
-            <input type="submit" value="Log In"/>
-            <a href="/register">Register</a>
-        </div>
-    </form>
-</div>
-<!--<main ng-view></main>-->
-
 </body>
 </html>

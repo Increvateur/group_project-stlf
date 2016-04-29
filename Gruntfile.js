@@ -48,7 +48,8 @@ module.exports = function(grunt) {
                     "angular-material/*",
                     "angular-messages/*",
                     "angular-route/*",
-                    "angular-ui-bootstrap/dist/*"
+                    "angular-ui-bootstrap/dist/*",
+                    "angular-smart-table/dist/*"
                 ],
                 "dest": "server/public/assets/vendors/"
             },
@@ -63,25 +64,21 @@ module.exports = function(grunt) {
                 ],
                 "dest": "server/public/assets/views/"
             },
-
             bootstrap: {
                 expand: true,
                 cwd: "node_modules/bootstrap/",
                 src: [
                     "dist/**/*"
-                    //"css/bootstrap.min.css",
-                    //"css/bootstrap.min.css.map",
-                    //"css/bootstrap.",
-                    //"js/bootstrap.min.js"
                 ],
                 "dest": "server/public/assets/vendors/bootstrap/"
             },
-            jQuery: {
+            amCharts: {
                 expand: true,
-                cwd: "node_modules/jquery/dist/",
-                src: "jquery.min.js",
-                "dest": "server/public/vendor/jquery/"
-
+                cwd: "node_modules/amcharts3/",
+                src: [
+                    "amcharts/*/*"
+                ],
+                "dest": "server/public/assets/vendors/"
             }
         }
 
