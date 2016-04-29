@@ -35,30 +35,30 @@
     <label>Fiscal Year</label>
     <input type="number" class="container form-control year col-xs-4" ng-model="goals.fiscalyear" ng-model-options="{ updateOn: 'blur' }" ng-change="addFyKey(fiscalyear)" placeholder="Fiscal Year" />
     <uib-tabset class="container col-xs-14" active="active">
-      <uib-tab ng-repeat="month in goals.months track by month.value" heading="{{month.name}}">
-        {{ $index }} {{ month.name }} {{ month.value }}
+      <uib-tab ng-repeat="month in monthsObj.months track by month.key" heading="{{month.name}}">
+        {{ $index }} {{ month.name }} {{ month.key }}
         <!-- <ng-form name="input-goals"> -->
           <div class="form-group">
             <label>{{ month.name }} Staff Members Goal</label>
-            <input type="text" class="form-control staffgoal" ng-model="goals.months[$index].staff" placeholder="{{month.name}} Staff Goals" />
+            <input type="text" class="form-control staffgoal" ng-model="goals[month.key].staff" placeholder="{{month.name}} Staff Goals" />
             <label>Board Members Goal</label>
-            <input type="text" class="form-control boardgoal" ng-model="goals.months[$index].board" placeholder="{{month.name}} Board Goals" />
+            <input type="text" class="form-control boardgoal" ng-model="goals[month.key].board" placeholder="{{month.name}} Board Goals" />
             <label>Committee Members</label>
-            <input type="text" class="form-control committeegoal" ng-model="goals.months[$index].committee" placeholder="{{month.name}} Committee Goals" />
+            <input type="text" class="form-control committeegoal" ng-model="monthsObj.months[$index].committee" placeholder="{{month.name}} Committee Goals" />
             <label>Parent</label>
-            <input type="text" class="form-control parentgoal" ng-model="goals.months[$index].parent" placeholder="{{month.name}} Paren Goals" />
+            <input type="text" class="form-control parentgoal" ng-model="monthsObj.months[$index].parent" placeholder="{{month.name}} Paren Goals" />
             <label>Alum</label>
-            <input type="text" class="form-control alumgoal" ng-model="goals.months[$index].alum" placeholder="{{month.name}} Alum Goals" />
+            <input type="text" class="form-control alumgoal" ng-model="monthsObj.months[$index].alum" placeholder="{{month.name}} Alum Goals" />
             <label>Participant</label>
-            <input type="text" class="form-control participantgoal" ng-model="goals.months[$index].participant" placeholder="{{month.name}} Participant Goals" />
+            <input type="text" class="form-control participantgoal" ng-model="monthsObj.months[$index].participant" placeholder="{{month.name}} Participant Goals" />
             <label>Community Support</label>
-            <input type="text" class="form-control communitygoal" ng-model="goals.months[$index].community" placeholder="{{month.name}} Community Goals" />
+            <input type="text" class="form-control communitygoal" ng-model="monthsObj.months[$index].community" placeholder="{{month.name}} Community Goals" />
             <label>Corporations</label>
-            <input type="text" class="form-control corporationsgoal" ng-model="goals.months[$index].corporations" placeholder="{{month.name}} Corporation Goals" />
+            <input type="text" class="form-control corporationsgoal" ng-model="monthsObj.months[$index].corporations" placeholder="{{month.name}} Corporation Goals" />
             <label>Foundations</label>
-            <input type="text" class="form-control foundationsgoal" ng-model="goals.months[$index].foundations" placeholder="{{month.name}} Foundations Goals" />
+            <input type="text" class="form-control foundationsgoal" ng-model="monthsObj.months[$index].foundations" placeholder="{{month.name}} Foundations Goals" />
             <label>Events</label>
-            <input type="text" class="form-control eventsgoal" ng-model="goals.months[$index].events" placeholder="{{month.name}} Event Goals" />
+            <input type="text" class="form-control eventsgoal" ng-model="monthsObj.months[$index].events" placeholder="{{month.name}} Event Goals" />
           </div>
         <!-- </ng-form> -->
       </uib-tab>

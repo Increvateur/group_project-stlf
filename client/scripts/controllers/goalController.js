@@ -5,57 +5,57 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
   console.log('HI, @CONTROLLER - AddGoalsController Works!');
 
   var goalService = GoalService;
-  // $scope.goals = {};
+  $scope.goals = {};
   // $scope.months = ['september', 'october', 'november', 'december', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august'];
-  $scope.goals = {
+  $scope.monthsObj = {
     months : [
       {
         name: 'September',
-        value: 'september'
+        key: 'september'
       },
       {
         name: 'October',
-        value: 'october'
+        key: 'october'
       },
       {
         name: 'November',
-        value: 'november'
+        key: 'november'
       },
       {
         name: 'December',
-        value: 'december'
+        key: 'december'
       },
       {
         name: 'January',
-        value: 'january'
+        key: 'january'
       },
       {
         name: 'February',
-        value: 'february'
+        key: 'february'
       },
       {
         name: 'March',
-        value: 'march'
+        key: 'march'
       },
       {
         name: 'April',
-        value: 'april'
+        key: 'april'
       },
       {
         name: 'May',
-        value: 'may'
+        key: 'may'
       },
       {
         name: 'June',
-        value: 'june'
+        key: 'june'
       },
       {
         name: 'July',
-        value: 'july'
+        key: 'july'
       },
       {
         name: 'August',
-        value: 'august'
+        key: 'august'
       }
     ]
   };
@@ -75,11 +75,7 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
     $scope.key = data.fiscalyear;
     console.log('## @goalController in saveGoals - $scope.key, data: ', $scope.key, data);
     data[$scope.key] = data.months;
-    delete data.months;
-    delete data.fiscalyear;
     console.log('! @goalController in saveGoals - data: ', data);
-    // data = goals;
-
     goalService.newGoals(data);
   };
 
