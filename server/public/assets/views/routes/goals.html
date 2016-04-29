@@ -33,9 +33,9 @@
 <body class="container "ng-controller="AddGoalsController">
   <form ng-submit=saveGoals(goals) name="outerForm" class="tab-goals">
     <label>Fiscal Year</label>
-    <input type="number" class="container form-control year col-xs-4" ng-model="goals.fiscalyear" placeholder="Fiscal Year" />
+    <input type="number" class="container form-control year col-xs-4" ng-model="fiscalyear" ng-model-options="{ updateOn: 'blur' }" ng-change="addFyKey(fiscalyear)" placeholder="Fiscal Year" />
     <uib-tabset class="container col-xs-14" active="active">
-      <uib-tab ng-repeat="month in goals.months track by month.value" heading="{{month.name}}">
+      <uib-tab ng-repeat="month in monthsObj.months track by month.value" heading="{{month.name}}">
         {{ $index }} {{ month.name }} {{ month.value }}
         <!-- <ng-form name="input-goals"> -->
           <div class="form-group">
@@ -67,7 +67,7 @@
 
     <button class="btn btn-primary" type="submit" >Save Goals</button>
   </form>
-  goals:
-  <pre>{{ goals | json }}</pre>
+  monthsObj:
+  <pre>{{ monthsObj | json }}</pre>
 </body>
 </html>
