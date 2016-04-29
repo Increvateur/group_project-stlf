@@ -89,6 +89,7 @@ router.get("/fetch", function (req, res) {
       var objRow = {
           count: result.totalSize,
           queryInfo : myQuery,
+
           result: result
       }
       res.status(200).send(objRow);
