@@ -27,6 +27,7 @@ router.get("/getnames", function(req, res){
 router.post("/postnames", function (req, res) {
     var request = req.body;
     console.log(request);
+<<<<<<< HEAD
     var newUser = new User({
       'firstname' : request.firstname,
       'lastname' : request.lastname,
@@ -37,6 +38,11 @@ router.post("/postnames", function (req, res) {
       'default_view' : request.default_view
     });
     
+=======
+    var newUser = new User({ 'firstname' : request.firstname, 'lastname' : request.lastname,
+        'email' : request.email, 'username' : request.username, 'password' : request.password,
+        'role' : request.role, 'default_view' : request.default_view });
+>>>>>>> d7f010cba46c9d4dca3b3b04301998c3414736ed
     newUser.save(function(err, data) {
         if (err) {
             console.log("Error Saving Names to Database", err);

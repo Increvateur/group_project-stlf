@@ -5,12 +5,19 @@ p{
   color:blue;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d7f010cba46c9d4dca3b3b04301998c3414736ed
 .st-selected {
   background-color: #003366;
   color: white;
 }
 
+<<<<<<< HEAD
 /*start user authentication styles*/
+=======
+>>>>>>> d7f010cba46c9d4dca3b3b04301998c3414736ed
 .instructions .container h1 {
     font-size: 24px;
     font-weight: 700;
@@ -52,6 +59,7 @@ p{
 .btn-danger{
     margin-left: 10px;
 }
+<<<<<<< HEAD
 /*end user authentication styles*/
 
 /*start navbar styles*/
@@ -132,3 +140,6 @@ body {
   cursor: pointer;
   padding: 0 .25em; }
 /*end navbar styles*/
+=======
+
+>>>>>>> d7f010cba46c9d4dca3b3b04301998c3414736ed

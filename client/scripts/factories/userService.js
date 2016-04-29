@@ -9,12 +9,15 @@ myApp.factory("UserService", ["$http", function($http) {
     });
   };
 
+<<<<<<< HEAD
   var logout = function(){
   $http.get("logout").then(function(){
     console.log("You have just logged out");
   });
 };
 
+=======
+>>>>>>> d7f010cba46c9d4dca3b3b04301998c3414736ed
   var postNames = function(data) {
     console.log(data);
     return $http.post("/postnames", data).then(function(response) {
@@ -31,7 +34,10 @@ myApp.factory("UserService", ["$http", function($http) {
 
   return {
 
+<<<<<<< HEAD
     logout : logout,
+=======
+>>>>>>> d7f010cba46c9d4dca3b3b04301998c3414736ed
     getNames : getNames,
     postNames : postNames,
     newUser: newUser,
