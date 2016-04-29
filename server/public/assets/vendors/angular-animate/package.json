@@ -2,15 +2,7 @@
   "_args": [
     [
       "angular-animate@^1.5.5",
-<<<<<<< HEAD
-<<<<<<< HEAD
       "/Users/Increvateur/Desktop/Temp - Group Project/group_project-stlf"
-=======
-      "/Users/aaronmcgrath/Atom_Projects/group_project_stlf/stlf_working_files/group_project-stlf"
->>>>>>> 9f87fade2263dce147f6a51bcbb413058bea6627
-=======
-      "/Users/Increvateur/Desktop/Temp - Group Project/group_project-stlf"
->>>>>>> feature_charts
     ]
   ],
   "_from": "angular-animate@>=1.5.5 <2.0.0",
@@ -44,15 +36,7 @@
   "_shasum": "6641ba517d37b8158578d99178e1e9a6bed19b75",
   "_shrinkwrap": null,
   "_spec": "angular-animate@^1.5.5",
-<<<<<<< HEAD
-<<<<<<< HEAD
   "_where": "/Users/Increvateur/Desktop/Temp - Group Project/group_project-stlf",
-=======
-  "_where": "/Users/aaronmcgrath/Atom_Projects/group_project_stlf/stlf_working_files/group_project-stlf",
->>>>>>> 9f87fade2263dce147f6a51bcbb413058bea6627
-=======
-  "_where": "/Users/Increvateur/Desktop/Temp - Group Project/group_project-stlf",
->>>>>>> feature_charts
   "author": {
     "email": "angular-core+npm@google.com",
     "name": "Angular Core Team"
