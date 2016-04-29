@@ -5,9 +5,9 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
   console.log('HI, @CONTROLLER - AddGoalsController Works!');
 
   var goalService = GoalService;
-  $scope.goals = {};
-  $scope.months = ['september', 'october', 'november', 'december', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august'];
-  $scope.monthsObj = {
+  // $scope.goals = {};
+  // $scope.months = ['september', 'october', 'november', 'december', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august'];
+  $scope.goals = {
     months : [
       {
         name: 'September',
@@ -61,21 +61,25 @@ myApp.controller('AddGoalsController', ['$scope', 'GoalService', function($scope
   };
   $scope.fiscalyear = '';
 
-  $scope.addFyKey = function(year) {
-    var goals = {};
-    $scope.key = year;
-    console.log('## @goalController in addFyKey - $scope.key, goals: ', $scope.key, goals);
-    goals[$scope.key] = {};
-    console.log('! @goalController in addFyKey - goals: ', goals);
-    $scope.goals = goals;
-    return $scope.goals;
-  };
+  // $scope.addFyKey = function(year) {
+  //   $scope.fiscalyear = year;
+  //   return $scope.fiscalyear;
+  // };
 
-  console.log('~ @goalController after addFyKey - $scope.goals: ', $scope.goals);
+  // console.log('~ @goalController after addFyKey - $scope.goals: ', $scope.goals);
 
   $scope.saveGoals = function(data) {
-
     console.log('@goalController.js data (AKA: goals: ', data);
+
+
+    $scope.key = data.fiscalyear;
+    console.log('## @goalController in saveGoals - $scope.key, data: ', $scope.key, data);
+    data[$scope.key] = data.months;
+    delete data.months;
+    delete data.fiscalyear;
+    console.log('! @goalController in saveGoals - data: ', data);
+    // data = goals;
+
     goalService.newGoals(data);
   };
 
