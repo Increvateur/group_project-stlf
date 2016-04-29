@@ -1,0 +1,51 @@
+<div class="money-raised-view container">
+
+
+
+    <table st-table="displayedContacts" st-safe-src="contacts.object" class="table">
+        <thead>
+        <tr>
+            <th st-sort="">Account Type</th>
+            <th st-sort="">2016 YTD</th>
+            <th st-sort="">2015 YTD</th>
+            <th st-sort="">2014 YTD</th>
+            <th st-sort="">Goal</th>
+            <th st-sort="">% of Goal</th>
+            <th st-sort="">% to Goal</th>
+            <th st-sort="">2015 Fiscal Year</th>
+            <th st-sort="">2014 Fiscal Year</th>
+        </tr>
+        <tr>
+            <!--<th>-->
+            <!--<input st-search="'firstName'" placeholder="search for firstname" class="input-sm form-control" type="search"/>-->
+            <!--</th>-->
+            <th colspan="4">
+                <input st-search placeholder="global search" class="input-sm form-control" type="search"/>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr st-select-row="person" st-select-mode="single" ng-repeat="person in displayedContacts">
+            <td>{{account.FirstName}}</td>
+
+            <td>{{account.LastName}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="5" class="text-center">
+                <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+
+
+
+
+
+
+
+
+
+</div>
