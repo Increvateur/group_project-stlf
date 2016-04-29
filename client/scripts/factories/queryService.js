@@ -242,24 +242,123 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     arrSql.push(sqlObj);
 
-    // // TODO current retained donors. They donated this fiscal year and either of the previous two.
-    // strSql = "SELECT  COUNT(Id) FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' GROUP BY AccountId HAVING CloseDate >= " + ytdStart + " AND CloseDate <= " + ytdEnd ;
-    // strSql += " AND ((CloseDate >=" + ytdM1Start + " AND CloseDate <=" + ytdM1End + " ) OR (CloseDate >=" + ytdM2Start + " AND CloseDate <= " + ytdM2End +"))";
-    // sqlObj = {query:"Current retained donors ytd", sql: strSql};
-    //
-    // arrSql.push(sqlObj);
+    // everything query, pulls all relevant data, this is currently set for Staff.
+
+ // var query = "SELECT AccountId, Account.Name, RecordType.Name, Amount, CloseDate, Campaign.Name,";
+ // query += " Donation_SubCategory__c, FiscalYear,";
+ // query += " Account.npe01__One2OneContact__r.npo02__Household__r.Id, StageName FROM ";
+ // query += "Opportunity WHERE StageName ='Posted'  AND Donation_SubCategory__c = 'Staff' limit 100";
+
+ // SELECT ID,
+ //       (SELECT StageName, Effective_Date__c, Expiration_Date__c
+ //        FROM Opportunities
+ //        WHERE StageName='Closed Won' AND Effective_Date__c < TODAY AND Expiration_Date__c > TODAY)
+ // FROM Account where Id In (Select AccountId From Opportunity WHERE StageName='Closed Won' AND Effective_Date__c < TODAY AND Expiration_Date__c > TODAY)
+ // And Id In (Select AccountId From Opportunity Where StageName = 'Closed AND Expiration_Date__c < TODAY AND Expiration_Date__c > LAST_365_DAYS)
+
+
+
+
+    // TODO current retained donors. They donated this fiscal year and either of the previous two.
+
+    strSql = "SELECT  AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM'  AND  CloseDate >= " + ytdStart + " AND CloseDate <= " + ytdEnd ;
+    strSql += " GROUP BY AccountId";
+
+    sqlObj = {query:"working on Current retained donors", sql: strSql};
+
+    arrSql.push(sqlObj);
 
 
 
     // donor amounts
     // strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE (CloseDate > 2014-09-01 AND CloseDate < 2015-08-31) GROUP BY AccountId HAVING (SUM(Amount) >= 400 AND SUM(Amount) < 1000)  ";
 
-    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE (CloseDate > 2014-09-01 AND CloseDate < 2015-08-31) GROUP BY AccountId HAVING ( SUM(Amount) < 95)  ";
+
+    // base selected YTD
+    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY AccountId HAVING ( SUM(Amount) < 95 )  ";
 
 
-    sqlObj = {query:"base donors current year", sql: strSql};
+    sqlObj = {query:"BASE donors Selected YTD", sql: strSql};
 
     arrSql.push(sqlObj);
+
+    // base selected YTD -1
+    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdM1Start + " AND CloseDate < =" + ytdM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 95  )  ";
+
+
+    sqlObj = {query:"BASE donors Selected YTD -1", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // base selected YTD -2
+    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdM2Start + " AND CloseDate < =" + ytdM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 95 )  ";
+
+
+    sqlObj = {query:"BASE donors Selected YTD -2", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // base selected FY -1
+    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + fyM1Start + " AND CloseDate < =" + fyM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 95 )  ";
+
+
+    sqlObj = {query:"BASE donors first FY before selected", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // base selected FY -2
+    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + fyM2Start + " AND CloseDate < =" + fyM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 95 )  ";
+
+
+    sqlObj = {query:"BASE donors SECOND FY before selected", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // intermediate
+
+    // intermediate selected YTD
+    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ";
+
+    // strSql = "SELECT  COUNT(Id), SUM(AMount), Account.Name FROM Opportunity WHERE CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY Account.Name HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ORDER BY Account.Name ";
+
+
+    sqlObj = {query:"INTERMEDIATE donors Selected YTD", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // intermediate selected YTD -1
+    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdM1Start + " AND CloseDate < =" + ytdM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ";
+
+
+    sqlObj = {query:"INTERMEDIATE donors Selected YTD -1", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // intermediate selected YTD -2
+    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdM2Start + " AND CloseDate < =" + ytdM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ";
+
+
+    sqlObj = {query:"INTERMEDIATE donors Selected YTD -2", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // intermediate selected FY -1
+    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + fyM1Start + " AND CloseDate < =" + fyM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 ) ";
+
+
+    sqlObj = {query:"INTERMEDIATE donors first FY before selected", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // intermediate selected FY -2
+    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + fyM2Start + " AND CloseDate < =" + fyM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ";
+
+
+    sqlObj = {query:"INTERMEDIATE donors SECOND FY before selected", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+
 
 
 
