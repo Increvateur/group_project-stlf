@@ -2,7 +2,7 @@
   "_args": [
     [
       "angular-route@^1.5.5",
-      "/Users/Increvateur/Desktop/Temp - Group Project/group_project-stlf"
+      "/Users/Neil/Desktop/group_project-stlf-master 2"
     ]
   ],
   "_from": "angular-route@>=1.5.5 <2.0.0",
@@ -36,7 +36,7 @@
   "_shasum": "69349369209b1f34724a58145dc7ec6a4987a1e7",
   "_shrinkwrap": null,
   "_spec": "angular-route@^1.5.5",
-  "_where": "/Users/Increvateur/Desktop/Temp - Group Project/group_project-stlf",
+  "_where": "/Users/Neil/Desktop/group_project-stlf-master 2",
   "author": {
     "email": "angular-core+npm@google.com",
     "name": "Angular Core Team"
@@ -56,21 +56,21 @@
   "homepage": "http://angularjs.org",
   "keywords": [
     "angular",
-    "framework",
     "browser",
-    "router",
-    "client-side"
+    "client-side",
+    "framework",
+    "router"
   ],
   "license": "MIT",
   "main": "index.js",
   "maintainers": [
     {
-      "email": "angular-core+npm@google.com",
-      "name": "angularcore"
+      "name": "angularcore",
+      "email": "angular-core+npm@google.com"
     },
     {
-      "email": "pete@bacondarwin.com",
-      "name": "petebd"
+      "name": "petebd",
+      "email": "pete@bacondarwin.com"
     }
   ],
   "name": "angular-route",
