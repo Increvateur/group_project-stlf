@@ -242,9 +242,16 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     arrSql.push(sqlObj);
 
+    // // TODO current retained donors. They donated this fiscal year and either of the previous two.
+    // strSql = "SELECT  COUNT(Id) FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' GROUP BY AccountId HAVING CloseDate >= " + ytdStart + " AND CloseDate <= " + ytdEnd ;
+    // strSql += " AND ((CloseDate >=" + ytdM1Start + " AND CloseDate <=" + ytdM1End + " ) OR (CloseDate >=" + ytdM2Start + " AND CloseDate <= " + ytdM2End +"))";
+    // sqlObj = {query:"Current retained donors ytd", sql: strSql};
+    //
+    // arrSql.push(sqlObj);
 
 
 
+    // donor amounts
     // strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE (CloseDate > 2014-09-01 AND CloseDate < 2015-08-31) GROUP BY AccountId HAVING (SUM(Amount) >= 400 AND SUM(Amount) < 1000)  ";
 
     strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE (CloseDate > 2014-09-01 AND CloseDate < 2015-08-31) GROUP BY AccountId HAVING ( SUM(Amount) < 95)  ";
