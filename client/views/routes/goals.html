@@ -30,47 +30,44 @@
   <base href="/">
 
 </head>
-<body ng-controller="AddGoalsController">
-  <form ng-submit=saveGoals(addGoals) name="outerForm" class="tab-september">
-    <uib-tabset active="active">
-      <uib-tab ng-repeat="month in months track by month" heading="{{month}}">
-        {{ $index }} {{ month }}
-        <ng-form name="input-goals">
+<body class="container "ng-controller="AddGoalsController">
+  <form ng-submit=saveGoals(goals) name="outerForm" class="tab-goals">
+    <label>Fiscal Year</label>
+    <input type="number" class="container form-control year col-xs-4" ng-model="goals.fiscalyear" ng-model-options="{ updateOn: 'blur' }" ng-change="addFyKey(fiscalyear)" placeholder="Fiscal Year" />
+    <uib-tabset class="container col-xs-14" active="active">
+      <uib-tab ng-repeat="month in monthsObj.months track by month.key" heading="{{month.name}}">
+        {{ $index }} {{ month.name }} {{ month.key }}
+        <!-- <ng-form name="input-goals"> -->
           <div class="form-group">
-            <label>{{ month }} Staff Members Goal</label>
-            <input type="text" class="form-control staffgoal" ng-model="addGoals[month].staff" placeholder="{{month}} Staff Goals" />
+            <label>{{ month.name }} Staff Members Goal</label>
+            <input type="text" class="form-control staffgoal" ng-model="goals.months[month.key].staff" placeholder="{{ month.name }} Staff Goals" />
             <label>Board Members Goal</label>
-            <input type="text" class="form-control boardgoal" ng-model="addGoals[month].board" placeholder="{{month}} Board Goals" />
+            <input type="text" class="form-control boardgoal" ng-model="goals.months[month.key].board" placeholder="{{ month.name }} Board Goals" />
             <label>Committee Members</label>
-            <input type="text" class="form-control committeegoal" ng-model="addGoals[month].committee" />
+            <input type="text" class="form-control committeegoal" ng-model="goals.months[month.key].committee" placeholder="{{ month.name }} Committee Goals" />
             <label>Parent</label>
-            <input type="text" class="form-control parentgoal" ng-model="addGoals[month].parent" />
+            <input type="text" class="form-control parentgoal" ng-model="goals.months[month.key].parent" placeholder="{{ month.name }} Parent Goals" />
             <label>Alum</label>
-            <input type="text" class="form-control alumgoal" ng-model="addGoals[month].alum" />
+            <input type="text" class="form-control alumgoal" ng-model="goals.months[month.key].alum" placeholder="{{ month.name }} Alum Goals" />
             <label>Participant</label>
-            <input type="text" class="form-control participantgoal" ng-model="addGoals[month].participant" />
+            <input type="text" class="form-control participantgoal" ng-model="goals.months[month.key].participant" placeholder="{{ month.name }} Participant Goals" />
             <label>Community Support</label>
-            <input type="text" class="form-control communitygoal" ng-model="addGoals[month].community" />
+            <input type="text" class="form-control communitygoal" ng-model="goals.months[month.key].community" placeholder="{{ month.name }} Community Goals" />
             <label>Corporations</label>
-            <input type="text" class="form-control corporationsgoal" ng-model="addGoals[month].corporations" />
+            <input type="text" class="form-control corporationsgoal" ng-model="goals.months[month.key].corporations" placeholder="{{ month.name }} Corporation Goals" />
             <label>Foundations</label>
-            <input type="text" class="form-control foundationsgoal" ng-model="addGoals[month].foundations" />
+            <input type="text" class="form-control foundationsgoal" ng-model="goals.months[month.key].foundations" placeholder="{{ month.name }} Foundations Goals" />
             <label>Events</label>
-            <input type="text" class="form-control eventsgoal" ng-model="addGoals[month].events" />
+            <input type="text" class="form-control eventsgoal" ng-model="goals.months[month.key].events" placeholder="{{ month.name }} Event Goals" />
           </div>
-        </ng-form>
+        <!-- </ng-form> -->
       </uib-tab>
-      <button type="submit" >Save Goals</button>
+
     </uib-tabset>
+
+    <button class="btn btn-primary" type="submit" >Save Goals</button>
   </form>
-  Model:
-  <pre>{{ addGoals | json }}</pre>
+  goals:
+  <pre>{{ goals | json }}</pre>
 </body>
 </html>
-
-
-<!-- <uib-tabset active="activeForm">
-<uib-tab index="0" heading="{{month}}">
-
-</uib-tab>
-</uib-tabset> -->
