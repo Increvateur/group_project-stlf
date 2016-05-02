@@ -284,12 +284,12 @@ myApp.factory("QueryService", ["$http", function($http) {
 
 
     // donor amounts
-    // strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE (CloseDate > 2014-09-01 AND CloseDate < 2015-08-31) GROUP BY AccountId HAVING (SUM(Amount) >= 400 AND SUM(Amount) < 1000)  ";
+    // strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE (CloseDate > 2014-09-01 AND CloseDate < 2015-08-31) GROUP BY AccountId HAVING (SUM(Amount) >= 400 AND SUM(Amount) < 1000)  ";
 
 
     // base selected YTD
     myKey = "m1";
-    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY AccountId HAVING ( SUM(Amount) < 95 )  ";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >=" + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY AccountId HAVING ( SUM(Amount) <= 95 )  ";
 
 
     sqlObj = {key: myKey, query:"BASE donors Selected YTD", sql: strSql};
@@ -298,7 +298,7 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     // base selected YTD -1
     myKey = "m2";
-    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdM1Start + " AND CloseDate < =" + ytdM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 95  )  ";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + ytdM1Start + " AND CloseDate < =" + ytdM1End + " GROUP BY AccountId HAVING ( SUM(Amount) <= 95  )  ";
 
 
     sqlObj = {key: myKey, query:"BASE donors Selected YTD -1", sql: strSql};
@@ -307,7 +307,7 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     // base selected YTD -2
     myKey = "m3";
-    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdM2Start + " AND CloseDate < =" + ytdM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 95 )  ";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdM2Start + " AND CloseDate < =" + ytdM2End + " GROUP BY AccountId HAVING ( SUM(Amount) <= 95 )  ";
 
 
     sqlObj = {key: myKey, query:"BASE donors Selected YTD -2", sql: strSql};
@@ -316,7 +316,7 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     // base selected FY -1
     myKey = "m4";
-    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + fyM1Start + " AND CloseDate < =" + fyM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 95 )  ";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + fyM1Start + " AND CloseDate < =" + fyM1End + " GROUP BY AccountId HAVING ( SUM(Amount) <= 95 )  ";
 
 
     sqlObj = {key: myKey, query:"BASE donors first FY before selected", sql: strSql};
@@ -325,7 +325,7 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     // base selected FY -2
     myKey = "m5";
-    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + fyM2Start + " AND CloseDate < =" + fyM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 95 )  ";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + fyM2Start + " AND CloseDate < =" + fyM2End + " GROUP BY AccountId HAVING ( SUM(Amount) <= 95 )  ";
 
 
     sqlObj = {key: myKey, query:"BASE donors SECOND FY before selected", sql: strSql};
@@ -336,9 +336,9 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     // intermediate selected YTD
     myKey = "n1";
-    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) > 95 )  ";
 
-    // strSql = "SELECT  COUNT(Id), SUM(AMount), Account.Name FROM Opportunity WHERE CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY Account.Name HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ORDER BY Account.Name ";
+    // strSql = "SELECT  COUNT(Id), SUM(Amount), Account.Name FROM Opportunity WHERE CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY Account.Name HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ORDER BY Account.Name ";
 
 
     sqlObj = {key: myKey, query:"INTERMEDIATE donors Selected YTD", sql: strSql};
@@ -347,7 +347,7 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     // intermediate selected YTD -1
     myKey = "n2";
-    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdM1Start + " AND CloseDate < =" + ytdM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdM1Start + " AND CloseDate < =" + ytdM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) > 95 )  ";
 
 
     sqlObj = {key: myKey, query:"INTERMEDIATE donors Selected YTD -1", sql: strSql};
@@ -356,7 +356,7 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     // intermediate selected YTD -2
     myKey = "n3";
-    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + ytdM2Start + " AND CloseDate < =" + ytdM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdM2Start + " AND CloseDate < =" + ytdM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) > 95 )  ";
 
 
     sqlObj = {key: myKey, query:"INTERMEDIATE donors Selected YTD -2", sql: strSql};
@@ -365,7 +365,7 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     // intermediate selected FY -1
     myKey = "n4";
-    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + fyM1Start + " AND CloseDate < =" + fyM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 ) ";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + fyM1Start + " AND CloseDate < =" + fyM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) > 95 ) ";
 
 
     sqlObj = {key: myKey, query:"INTERMEDIATE donors first FY before selected", sql: strSql};
@@ -374,10 +374,180 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     // intermediate selected FY -2
     myKey = "n5";
-    strSql = "SELECT  COUNT(Id), SUM(AMount) FROM Opportunity WHERE CloseDate >= " + fyM2Start + " AND CloseDate < =" + fyM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + fyM2Start + " AND CloseDate < =" + fyM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 400 AND SUM(Amount) > 95 )  ";
 
 
     sqlObj = {key: myKey, query:"INTERMEDIATE donors SECOND FY before selected", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // large >= 400 < 1000
+
+    // large selected YTD
+    myKey = "o1";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY AccountId HAVING ( SUM(Amount) < 1000 AND SUM(Amount) >= 400 )  ";
+
+    // strSql = "SELECT  COUNT(Id), SUM(Amount), Account.Name FROM Opportunity WHERE CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY Account.Name HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ORDER BY Account.Name ";
+
+
+    sqlObj = {key: myKey, query:"LARGE donors Selected YTD", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // large selected YTD -1
+    myKey = "o2";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdM1Start + " AND CloseDate < =" + ytdM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 1000 AND SUM(Amount) >= 400 )  ";
+
+
+    sqlObj = {key: myKey, query:"LARGE donors Selected YTD -1", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // large selected YTD -2
+    myKey = "o3";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdM2Start + " AND CloseDate < =" + ytdM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 1000 AND SUM(Amount) >= 400 )  ";
+
+
+    sqlObj = {key: myKey, query:"LARGE donors Selected YTD -2", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // large selected FY -1
+    myKey = "o4";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + fyM1Start + " AND CloseDate < =" + fyM1End + " GROUP BY AccountId HAVING ( SUM(Amount) < 1000 AND SUM(Amount) >= 400 ) ";
+
+
+    sqlObj = {key: myKey, query:"LARGE donors first FY before selected", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // large selected FY -2
+    myKey = "o5";
+    strSql = "SELECT   COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + fyM2Start + " AND CloseDate < =" + fyM2End + " GROUP BY AccountId HAVING ( SUM(Amount) < 1000 AND SUM(Amount) >= 400 )  ";
+
+
+    sqlObj = {key: myKey, query:"LARGE donors SECOND FY before selected", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // major > 1000
+
+    // major selected YTD
+    myKey = "p1";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY AccountId HAVING (  SUM(Amount) >= 1000 )  ";
+
+    // strSql = "SELECT  COUNT(Id), SUM(Amount), Account.Name FROM Opportunity WHERE CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY Account.Name HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ORDER BY Account.Name ";
+
+
+    sqlObj = {key: myKey, query:"MAJOR donors Selected YTD", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // major selected YTD -1
+    myKey = "p2";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdM1Start + " AND CloseDate < =" + ytdM1End + " GROUP BY AccountId HAVING (  SUM(Amount) >= 1000 )  ";
+
+
+    sqlObj = {key: myKey, query:"MAJOR donors Selected YTD -1", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // major selected YTD -2
+    myKey = "p3";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdM2Start + " AND CloseDate < =" + ytdM2End + " GROUP BY AccountId HAVING (  SUM(Amount) >= 1000 )  ";
+
+
+    sqlObj = {key: myKey, query:"MAJOR donors Selected YTD -2", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // major selected FY -1
+    myKey = "p4";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + fyM1Start + " AND CloseDate < =" + fyM1End + " GROUP BY AccountId HAVING (  SUM(Amount) >= 1000 )  ";
+
+
+    sqlObj = {key: myKey, query:"MAJOR donors first FY before selected", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // major selected FY -2
+    myKey = "p5";
+    strSql = "SELECT   COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + fyM2Start + " AND CloseDate < =" + fyM2End + " GROUP BY AccountId HAVING (  SUM(Amount) >= 1000 )  ";
+
+
+    sqlObj = {key: myKey, query:"MAJOR donors SECOND FY before selected", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // total > 0
+
+    // total selected YTD
+    myKey = "q1";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY AccountId HAVING (  SUM(Amount) >= 0 )  ";
+
+    // strSql = "SELECT  COUNT(Id), SUM(Amount), Account.Name FROM Opportunity WHERE CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY Account.Name HAVING ( SUM(Amount) < 400 AND SUM(Amount) >= 95 )  ORDER BY Account.Name ";
+
+
+    sqlObj = {key: myKey, query:"TOTAL donors Selected YTD", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // total selected YTD -1
+    myKey = "q2";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdM1Start + " AND CloseDate < =" + ytdM1End + " GROUP BY AccountId HAVING (  SUM(Amount) >= 0 )  ";
+
+
+    sqlObj = {key: myKey, query:"TOTAL donors Selected YTD -1", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // total selected YTD -2
+    myKey = "q3";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + ytdM2Start + " AND CloseDate < =" + ytdM2End + " GROUP BY AccountId HAVING (  SUM(Amount) >= 0 )  ";
+
+
+    sqlObj = {key: myKey, query:"TOTAL donors Selected YTD -2", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // total selected FY -1
+    myKey = "q4";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + fyM1Start + " AND CloseDate < =" + fyM1End + " GROUP BY AccountId HAVING (  SUM(Amount) >= 0 )  ";
+
+
+    sqlObj = {key: myKey, query:"TOTAL donors first FY before selected", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // total selected FY -2
+    myKey = "q5";
+    strSql = "SELECT   COUNT(Id), SUM(Amount) FROM Opportunity WHERE  StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND  CloseDate >= " + fyM2Start + " AND CloseDate < =" + fyM2End + " GROUP BY AccountId HAVING (  SUM(Amount) >= 0 )  ";
+
+
+    sqlObj = {key: myKey, query:"TOTAL donors SECOND FY before selected", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    //REFERENCE
+    // base selected YTD
+    // myKey = "r1";
+    // strSql = "SELECT  COUNT(Id), SUM(Amount) FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY AccountId HAVING ( SUM(Amount) < 95 )  ";
+    //
+    //
+    // sqlObj = {key: myKey, query:"BASE donors Selected YTD", sql: strSql};
+    //
+    // arrSql.push(sqlObj);
+
+    //------
+    //TODO OOOOHHHH!!!!
+    // SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Contact WHERE LastName LIKE 'apple%') AND Id IN (SELECT AccountId FROM Opportunity WHERE isClosed = false )
+
+
+    // base selected YTD Total Amounts
+    myKey = "r1";
+    strSql = "SELECT  COUNT(Id), SUM(Amount) CASH FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd + " GROUP BY AccountId HAVING ( SUM(Amount) < 95 )  ";
+
+    sqlObj = {key: myKey, query:"BASE donors Selected YTD", sql: strSql};
 
     arrSql.push(sqlObj);
 
@@ -445,7 +615,7 @@ myApp.factory("QueryService", ["$http", function($http) {
                 // we are done
                 console.log("Hey! In fetchForce in queryService, I think we are done!");
                 forceData.arrResults = arrResults;
-                viewData();
+                parseResults();
                 return;
             }
             // do a call where the index of the sql array = the length of the arrResults array
@@ -468,13 +638,100 @@ myApp.factory("QueryService", ["$http", function($http) {
         });
     };
 
-    var viewData = function(){
+    var parseResults = function(){
 
-        // loop through arrResults
-        // see what it is
-        // for(var i=0; i<arrResults.length; i++){
-        //     console.log("ViewData! arrResults=", arrResults[i]);
-        // }
+        //base
+        var totalBaseSelYTD = totalResults("m1");
+        var totalBaseSelYTDm1 = totalResults("m2");
+        var totalBaseSelYTDm2 = totalResults("m3");
+        var totalBaseFYm1 = totalResults("m4");
+        var totalBaseFYm2 = totalResults("m5");
+
+        console.log("totalBaseSelYTD =", totalBaseSelYTD);
+        console.log("totalBaseSelYTDm1 =", totalBaseSelYTDm1);
+        console.log("totalBaseSelYTDm2 =", totalBaseSelYTDm2);
+        console.log("totalBaseFYm1 =", totalBaseFYm1);
+        console.log("totalBaseFYm2 =", totalBaseFYm2);
+
+        // intermediate
+
+        var totalInterSelYTD = totalResults("n1");
+        var totalInterSelYTDm1 = totalResults("n2");
+        var totalInterSelYTDm2 = totalResults("n3");
+        var totalInterFYm1 = totalResults("n4");
+        var totalInterFYm2 = totalResults("n5");
+
+        console.log("totalInterSelYTD =", totalInterSelYTD);
+        console.log("totalInterSelYTDm1 =", totalInterSelYTDm1);
+        console.log("totalInterSelYTDm2 =", totalInterSelYTDm2);
+        console.log("totalInterFYm1 =", totalInterFYm1);
+        console.log("totalInterFYm2 =", totalInterFYm2);
+
+        // large
+
+        var totalLargeSelYTD = totalResults("o1");
+        var totalLargeSelYTDm1 = totalResults("o2");
+        var totalLargeSelYTDm2 = totalResults("o3");
+        var totalLargeFYm1 = totalResults("o4");
+        var totalLargeFYm2 = totalResults("o5");
+
+        console.log("totalLargeSelYTD =", totalLargeSelYTD);
+        console.log("totalLargeSelYTDm1 =", totalLargeSelYTDm1);
+        console.log("totalLargeSelYTDm2 =", totalLargeSelYTDm2);
+        console.log("totalLargeFYm1 =", totalLargeFYm1);
+        console.log("totalLargeFYm2 =", totalLargeFYm2);
+
+        // major
+
+        var totalMajorSelYTD = totalResults("p1");
+        var totalMajorSelYTDm1 = totalResults("p2");
+        var totalMajorSelYTDm2 = totalResults("p3");
+        var totalMajorFYm1 = totalResults("p4");
+        var totalMajorFYm2 = totalResults("p5");
+
+        console.log("totalMajorSelYTD =", totalMajorSelYTD);
+        console.log("totalMajorSelYTDm1 =", totalMajorSelYTDm1);
+        console.log("totalMajorSelYTDm2 =", totalMajorSelYTDm2);
+        console.log("totalMajorFYm1 =", totalMajorFYm1);
+        console.log("totalMajorFYm2 =", totalMajorFYm2);
+        //
+        // total
+        var totalAllSelYTD = totalResults("q1");
+        var totalAllSelYTDm1 = totalResults("q2");
+        var totalAllSelYTDm2 = totalResults("q3");
+        var totalAllFYm1 = totalResults("q4");
+        var totalAllFYm2 = totalResults("q5");
+
+        console.log("totalAllSelYTD =", totalAllSelYTD);
+        console.log("totalAllSelYTDm1 =", totalAllSelYTDm1);
+        console.log("totalAllSelYTDm2 =", totalAllSelYTDm2);
+        console.log("totalAllFYm1 =", totalAllFYm1);
+        console.log("totalAllFYm2 =", totalAllFYm2);
+
+
+    };
+
+    var totalResults = function(myKey){
+
+        // loop through results and do manual calculations
+
+        for(var i=0; i<arrResults.length; i++){
+            if (arrResults[i].myKey == myKey){
+                // total results
+                // console.log("HEY THERE! ");
+                var mySet = arrResults[i].result.records;
+                var myCash = 0;
+                // console.log("myset length", mySet.length);
+                for (x=0; x<mySet.length; x++)
+                {
+                    // console.log("myset ", x, mySet[x]);
+                    myCash = myCash + mySet[x].expr1;
+                }
+                // console.log("myCash = ", myCash);
+                return myCash;
+
+            }
+        }
 
 
     };
