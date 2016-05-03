@@ -1006,11 +1006,30 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("totalAllFYm1 =", totalAllFYm1);
         console.log("totalAllFYm2 =", totalAllFYm2);
 
-        var crdSelYTD = countInEither("d1a","d1b");
-        var crdSelYTDm1 = countInEither("d2a","d2b");
-        var crdSelYTDm2 = countInEither("d3a","d3b");
-        var crdFym1 = countInEither("d4a","d4b");
-        var crdFym2 = countInEither("d5a","d5b");
+        // first time donors
+        var ftdYTD = getCount("c1");
+        var ftdYTDm1 = getCount("c2");
+        var ftdYTDm2 = getCount("c3");
+        var ftdFym1 = getCount("c4");
+        var ftdFym2 = getCount("c5");
+
+        console.log("ftdYTD", ftdYTD);
+        console.log("ftdYTDm1", ftdYTDm1);
+        console.log("ftdYTDm2", ftdYTDm2);
+        console.log("ftdFym1", ftdFym1);
+        console.log("ftdFym2", ftdFym2);
+
+
+
+
+
+
+        // current retained donors
+        var crdSelYTD = countInEither2("d1a","d1b");
+        var crdSelYTDm1 = countInEither2("d2a","d2b");
+        var crdSelYTDm2 = countInEither2("d3a","d3b");
+        var crdFym1 = countInEither2("d4a","d4b");
+        var crdFym2 = countInEither2("d5a","d5b");
 
         console.log("crdSelYTD", crdSelYTD);
         console.log("crdSelYTDm1", crdSelYTDm1);
@@ -1030,6 +1049,22 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("l2ybntyYTDM2", l2ybntyYTDM2);
         console.log("l2ybntyFym1", l2ybntyFym1);
         console.log("l2ybntyFym2", l2ybntyFym2);
+
+        // total current donor pool
+
+        var tcdpYTD = ftdYTD + crdSelYTD + l2ybntyYTD;
+        var tcdpYTDm1 = ftdYTDm1 + crdSelYTDm1 + l2ybntyYTDM1;
+        var tcdpYTDm2 = ftdYTDm2 + crdSelYTDm2 + l2ybntyYTDM2;
+        var tcdpFym1 = ftdFym1 + crdFym1 + l2ybntyFym1;
+        var tcdpFym2 = ftdFym2 + crdFym2 + l2ybntyFym2;
+
+        console.log("tcdpYTD", tcdpYTD);
+        console.log("tcdpYTDm1", tcdpYTDm1);
+        console.log("tcdpYTDm2", tcdpYTDm2);
+        console.log("tcdpFym1", tcdpFym1);
+        console.log("tcdpFym2", tcdpFym2);
+
+
 
 
 
@@ -1063,6 +1098,33 @@ myApp.factory("QueryService", ["$http", function($http) {
             }
         }
 
+
+    };
+
+    var countInEither2 = function(key1, key2){
+        var arr1 = [];
+        var arr2 = [];
+        var count = 0;
+        var total = 0;
+        for(var i=0; i<arrResults.length; i++){
+            if (arrResults[i].myKey ==key1){
+                arr1 = arrResults[i].result.records;
+            }
+            if (arrResults[i].myKey ==key2){
+                arr2 = arrResults[i].result.records;
+            }
+        }
+        for (i=0; i<arr1.length; i++){
+            for(j=0; j<arr2.length; j++){
+                if (arr1[i].Name == arr2[j].Name){
+                    count ++;
+
+                }
+            }
+        }
+        console.log("Count of dupes", count);
+        total = arr1.length + arr2.length -count;
+        return total;
 
     };
 
@@ -1115,6 +1177,23 @@ myApp.factory("QueryService", ["$http", function($http) {
 
 
         // console.log("Hoping for a total of records unique to these two arrays", counts);
+
+
+    };
+
+    var getCount = function(key){
+        // console.log("WOW we are in GETCOUNT");
+
+        var myCount = 0;
+        // loop through results and do manual calculations
+        for(var i=0; i<arrResults.length; i++){
+            if (arrResults[i].myKey == key){
+                // console.log("HEY I am in GETCOUNT, looking at", arrResults[i].count);
+                myCount = arrResults[i].count;
+            }
+        }
+        return myCount;
+
 
 
     };
