@@ -1131,11 +1131,11 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("Base");
 
         // Base
-        var baseYTD = getCount("c1");
-        var baseYTDm1 = getCount("c2");
-        var baseYTDm2 = getCount("c3");
-        var baseFym1 = getCount("c4");
-        var baseFym2 = getCount("c5");
+        var baseYTD = getCount("m1");
+        var baseYTDm1 = getCount("m2");
+        var baseYTDm2 = getCount("m3");
+        var baseFym1 = getCount("m4");
+        var baseFym2 = getCount("m5");
 
         console.log("baseYTD",baseYTD );
         console.log("baseYTDm1",baseYTDm1 );
@@ -1146,11 +1146,11 @@ myApp.factory("QueryService", ["$http", function($http) {
         // Inter
         console.log("Inter");
 
-        var interYTD = getCount("d1");
-        var interYTDm1 = getCount("d2");
-        var interYTDm2 = getCount("d3");
-        var interFym1 = getCount("d4");
-        var interFym2 = getCount("d5");
+        var interYTD = getCount("n1");
+        var interYTDm1 = getCount("n2");
+        var interYTDm2 = getCount("n3");
+        var interFym1 = getCount("n4");
+        var interFym2 = getCount("n5");
 
         console.log("interYTD",interYTD );
         console.log("interYTDm1",interYTDm1 );
@@ -1160,11 +1160,11 @@ myApp.factory("QueryService", ["$http", function($http) {
 
         // Large
         console.log("Large");
-        var largeYTD = getCount("e1");
-        var largeYTDm1 = getCount("e2");
-        var largeYTDm2 = getCount("e3");
-        var largeFym1 = getCount("e4");
-        var largeFym2 = getCount("e5");
+        var largeYTD = getCount("o1");
+        var largeYTDm1 = getCount("o2");
+        var largeYTDm2 = getCount("o3");
+        var largeFym1 = getCount("o4");
+        var largeFym2 = getCount("o5");
 
         console.log("largeYTD",largeYTD );
         console.log("largeYTDm1",largeYTDm1 );
@@ -1172,18 +1172,39 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("largeFym1",largeFym1 );
         console.log("largeFym2",largeFym2 );
 
-        // // Major
-        // var baseYTD = getCount("c1");
-        // var baseYTDm1 = getCount("c2");
-        // var baseYTDm2 = getCount("c3");
-        // var baseFym1 = getCount("c4");
-        // var baseFym2 = getCount("c5");
-        //
-        // console.log("baseYTD",baseYTD );
-        // console.log("baseYTDm1",baseYTDm1 );
-        // console.log("baseYTDm2",baseYTDm2 );
-        // console.log("baseFym1",baseFym1 );
-        // console.log("baseFym2",baseFym2 );
+        // Major
+        console.log("Major");
+        var majorYTD = getCount("p1");
+        var majorYTDm1 = getCount("p2");
+        var majorYTDm2 = getCount("p3");
+        var majorFym1 = getCount("p4");
+        var majorFym2 = getCount("p5");
+
+        console.log("majorYTD",majorYTD );
+        console.log("majorYTDm1",majorYTDm1 );
+        console.log("majorYTDm2",majorYTDm2 );
+        console.log("majorFym1",majorFym1 );
+        console.log("majorFym2",majorFym2 );
+
+        // total donors
+        console.log("Total Donors");
+        var totDonYTD = baseYTD + interYTD + largeYTD + majorYTD;
+        var totDonYTDm1 = baseYTDm1 + interYTDm1 + largeYTDm1 + majorYTDm1;
+        var totDonYTDm2 = baseYTDm2 + interYTDm2 + largeYTDm2 + majorYTDm2;
+        var totDonFym1 = baseFym1 + interFym1 + largeFym1 + majorFym1;
+        var totDonFym2 = baseFym2 + interFym2 + largeFym2 + majorFym2;
+
+
+        console.log("totDonYTD", totDonYTD);
+        console.log("totDonYTDm1", totDonYTDm1);
+        console.log("totDonYTDm2", totDonYTDm2);
+        console.log("totDonFym1", totDonFym1);
+        console.log("totDonFym2", totDonFym2);
+
+
+        // gift range amounts
+        console.log("gift range amounts");
+
 
         console.log("Base");
 
