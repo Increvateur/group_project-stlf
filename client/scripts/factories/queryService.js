@@ -47,6 +47,11 @@ myApp.factory("QueryService", ["$http", function($http) {
     var fyM4Start = new Date();
     var fyM4End = new Date();
 
+    var fyM5End = new Date();
+
+
+
+
 
     ytdEnd = new Date(selEndDate);
 
@@ -106,6 +111,8 @@ myApp.factory("QueryService", ["$http", function($http) {
     fyM3End.add({"years":-2});
     fyM4End = new Date(fyM1End);
     fyM4End.add({"years":-3});
+    fyM5End = new Date(fyM1End);
+    fyM5End.add({"years":-4});
 
     fyM1Start = new Date(ytdM1Start);
     fyM2Start = new Date(ytdM2Start);
@@ -135,6 +142,9 @@ myApp.factory("QueryService", ["$http", function($http) {
     fyM4Start = fyM4Start.toFormat("YYYY-MM-DD");
     fyM4End = fyM4End.toFormat("YYYY-MM-DD");
 
+    fyM5End = fyM5End.toFormat("YYYY-MM-DD");
+
+
 
 
 
@@ -154,6 +164,8 @@ myApp.factory("QueryService", ["$http", function($http) {
 
 
 
+
+
     console.log("fyM1Start", fyM1Start);
     console.log("fyM1End", fyM1End);
     console.log("fyM2Start", fyM2Start);
@@ -162,6 +174,9 @@ myApp.factory("QueryService", ["$http", function($http) {
     console.log("fyM3End", fyM3End);
     console.log("fyM4Start", fyM4Start);
     console.log("fyM4End", fyM4End);
+
+    console.log("fyM5End", fyM5End);
+
 
 
 
@@ -173,6 +188,11 @@ myApp.factory("QueryService", ["$http", function($http) {
     strSql = "SELECT Donation_SubCategory__c, SUM(Amount) FROM  Opportunity WHERE StageName = 'Posted' AND Amount != null AND CloseDate >= " + ytdStart + " AND CloseDate <=" + ytdEnd + "  GROUP BY Donation_SubCategory__c ";
 
     sqlObj = {key: myKey, query:"money raised YTD START AND END RATE this is NEW SPARTA", sql: strSql};
+
+
+
+
+
 
     arrSql.push(sqlObj);
 
@@ -596,257 +616,227 @@ myApp.factory("QueryService", ["$http", function($http) {
 
 
     // current retained YTD
-    // donated ytd and FYm1
+    // donated ytd and within fym2 start and fym1end
 
-    myKey = "d1a";
-
-    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdStart + " AND CloseDate < " + ytdEnd +")";
-
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM1Start + " AND CloseDate < " + ytdM1End +") ";
-
-    sqlObj = {key: myKey, query:"donated ytd and ytdm1", sql: strSql};
-
-    arrSql.push(sqlObj);
-
-    // donated ytd and FYm1
-
-    myKey = "d1b";
+    myKey = "d1";
 
     strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdStart + " AND CloseDate < " + ytdEnd +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM2Start + " AND CloseDate < " + ytdM2End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM1End +") ";
 
-    sqlObj = {key: myKey, query:"donated ytd and ytdm2", sql: strSql};
+    sqlObj = {key: myKey, query:"CURRENT RETAINED YTD new def", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    // current retained YTD Minus 1
-    // donated ytd m1 and m2
+    // current retained YTDM1
+    // donated ytdm1 and within fym3 start and fyM2End
 
-    myKey = "d2a";
+    myKey = "d2";
 
     strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM1Start + " AND CloseDate < " + ytdM1End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM2Start + " AND CloseDate < " + ytdM2End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM2End +") ";
 
-    sqlObj = {key: myKey, query:"donated ytdm1 and ytdm2", sql: strSql};
-
-    arrSql.push(sqlObj);
-
-    // donated ytd m2 and m3
-
-    myKey = "d2b";
-
-    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM1Start + " AND CloseDate < " + ytdM1End +")";
-
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM3Start + " AND CloseDate < " + ytdM3End +") ";
-
-    sqlObj = {key: myKey, query:"donated y2dm1 and ytdm3", sql: strSql};
+    sqlObj = {key: myKey, query:"CURRENT RETAINED YTD-1 new def", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    // current retained YTD Minus 2
-    // donated ytd m3 and m3
+    // current retained YTDM2
+    // donated ytdm2 and within fym4 start and fym3end
 
-    myKey = "d3a";
+    myKey = "d3";
 
     strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM2Start + " AND CloseDate < " + ytdM2End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM3Start + " AND CloseDate < " + ytdM3End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM4Start + " AND CloseDate < " + fyM3End +") ";
 
-    sqlObj = {key: myKey, query:"donated y2dm2 and ytdm3", sql: strSql};
-
-    arrSql.push(sqlObj);
-
-    // donated ytd m2 and m4
-
-    myKey = "d3b";
-
-    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM2Start + " AND CloseDate < " + ytdM2End +")";
-
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM4Start + " AND CloseDate < " + ytdM4End +") ";
-
-    sqlObj = {key: myKey, query:"donated y2dm2 and ytdm4", sql: strSql};
+    sqlObj = {key: myKey, query:"CURRENT RETAINED YTD-2 new def", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    // current retained FYm1
-    // donated fym1 and fym2
+    // current retained fym1
+    // donated fym1 and within fym3start and fyM2End
 
-    myKey = "d4a";
+    myKey = "d4";
 
     strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM1Start + " AND CloseDate < " + fyM1End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM2End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM2End +") ";
 
-    sqlObj = {key: myKey, query:"donated fym1 and fym2", sql: strSql};
-
-    arrSql.push(sqlObj);
-
-    // donated fym1 and fym3
-
-    myKey = "d4b";
-
-    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM1Start + " AND CloseDate < " + fyM1End +")";
-
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM3End +") ";
-
-    sqlObj = {key: myKey, query:"donated fym1 and fym3", sql: strSql};
+    sqlObj = {key: myKey, query:"CURRENT RETAINED FYM1", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    // current retained FYm1
-    // donated fym1 and fym2
+    // current retained fym2
+    // donated fym2 and within fyM4Start and fyM3End
 
-    myKey = "d5a";
+    myKey = "d5";
 
     strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM2End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM3End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM4Start + " AND CloseDate < " + fyM3End +") ";
 
-    sqlObj = {key: myKey, query:"donated fym2 and fym3", sql: strSql};
-
-    arrSql.push(sqlObj);
-
-    // donated fym1 and fym3
-
-    myKey = "d5b";
-
-    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM2End +")";
-
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM4Start + " AND CloseDate < " + fyM4End +") ";
-
-    sqlObj = {key: myKey, query:"donated fym2 and fym4", sql: strSql};
+    sqlObj = {key: myKey, query:"CURRENT RETAINED FYM2", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    //-----------
-    // l2ybnty YTD
-    // NOT donated ytd and FYm1
+    // lsybnty ytd
+    // NOTdonated ytd and within fym2 start and fym1end
 
-    myKey = "e1a";
+    myKey = "e1";
 
     strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdStart + " AND CloseDate < " + ytdEnd +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM1Start + " AND CloseDate < " + ytdM1End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM1End +") ";
 
-    sqlObj = {key: myKey, query:"NOT donated ytd and ytdm1", sql: strSql};
-
-    arrSql.push(sqlObj);
-
-    // NOT donated ytd and FYm1
-
-    myKey = "e1b";
-
-    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdStart + " AND CloseDate < " + ytdEnd +")";
-
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM2Start + " AND CloseDate < " + ytdM2End +") ";
-
-    sqlObj = {key: myKey, query:"NOT donated ytd and ytdm2", sql: strSql};
+    sqlObj = {key: myKey, query:"l2ybnty YTD new def", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    ///--------
+    //  lsybnty ytdm1
+    // not donated ytdm1 and within fym3 start and fyM2End
 
-    // ltybnty  YTD Minus 1
-    // not donated ytd m1 and m2
-
-    myKey = "e2a";
+    myKey = "e2";
 
     strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM1Start + " AND CloseDate < " + ytdM1End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM2Start + " AND CloseDate < " + ytdM2End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM2End +") ";
 
-    sqlObj = {key: myKey, query:"NOT donated ytdm1 and ytdm2", sql: strSql};
-
-    arrSql.push(sqlObj);
-
-    // donated ytd m2 and m3
-
-    myKey = "e2b";
-
-    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM1Start + " AND CloseDate < " + ytdM1End +")";
-
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM3Start + " AND CloseDate < " + ytdM3End +") ";
-
-    sqlObj = {key: myKey, query:"NOT donated y2dm1 and ytdm3", sql: strSql};
+    sqlObj = {key: myKey, query:"l2ybnty YTD-1 new def", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    // ltybnty YTD Minus 2
-    // donated ytd m3 and m3
+    // l2ybnty YTDM2
+    // not donated ytdm2 and within fym4 start and fym3end
 
-    myKey = "e3a";
+    myKey = "e3";
 
     strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM2Start + " AND CloseDate < " + ytdM2End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM3Start + " AND CloseDate < " + ytdM3End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM4Start + " AND CloseDate < " + fyM3End +") ";
 
-    sqlObj = {key: myKey, query:"NOT donated y2dm2 and ytdm3", sql: strSql};
-
-    arrSql.push(sqlObj);
-
-    // donated ytd m2 and m4
-
-    myKey = "e3b";
-
-    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM2Start + " AND CloseDate < " + ytdM2End +")";
-
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM4Start + " AND CloseDate < " + ytdM4End +") ";
-
-    sqlObj = {key: myKey, query:"NOT donated y2dm2 and ytdm4", sql: strSql};
+    sqlObj = {key: myKey, query:"l2ybnty YTD-2 new def", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    // ltybnty FYm1
-    // donated fym1 and fym2
+    // l2ybnty fym1
+    // not donated fym1 and within fym3start and fyM2End
 
-    myKey = "e4a";
+    myKey = "e4";
 
     strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM1Start + " AND CloseDate < " + fyM1End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM2End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM2End +") ";
 
-    sqlObj = {key: myKey, query:"NOT donated fym1 and fym2", sql: strSql};
-
-    arrSql.push(sqlObj);
-
-    // donated fym1 and fym3
-
-    myKey = "e4b";
-
-    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM1Start + " AND CloseDate < " + fyM1End +")";
-
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM3End +") ";
-
-    sqlObj = {key: myKey, query:"NOT donated fym1 and fym3", sql: strSql};
+    sqlObj = {key: myKey, query:"l2ybnty FYM1", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    // ltybnty FYm1
-    // donated fym1 and fym2
+    // l2ybnty fym2
+    // not donated fym2 and within fyM4Start and fyM3End
 
-    myKey = "e5a";
+    myKey = "e5";
 
     strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM2End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM3End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM4Start + " AND CloseDate < " + fyM3End +") ";
 
-    sqlObj = {key: myKey, query:"NOT donated fym2 and fym3", sql: strSql};
+    sqlObj = {key: myKey, query:"l2ybnty FYM2", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+
+
+
+
+    // RECOVERED ytdsel
+
+    myKey = "f1a";
+
+    strSql = "SELECT Id, Name FROM Account WHERE Id  IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdStart + " AND CloseDate < " + ytdEnd +")";
+
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate < " + fyM3End +") ";
+
+    sqlObj = {key: myKey, query:"donated in sel yetd, AND  sometime prior to the previous two fiscal years", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    // donated fym1 and fym3
+    myKey = "f1b";
 
-    myKey = "e5b";
+    strSql = "SELECT Id, Name FROM Account WHERE Id  IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM1End +")";
 
-    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM2End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM4Start + " AND CloseDate < " + fyM4End +") ";
-
-    sqlObj = {key: myKey, query:"NOT donated fym2 and fym4", sql: strSql};
+    sqlObj = {key: myKey, query:"donated in the previous 2 fiscal years", sql: strSql};
 
     arrSql.push(sqlObj);
+
+    // RECOVERED ytdM1
+
+    myKey = "f2a";
+
+    strSql = "SELECT Id, Name FROM Account WHERE Id  IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM1Start + " AND CloseDate < " + ytdM1End +")";
+
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate < " + fyM4End +") ";
+
+    sqlObj = {key: myKey, query:"donated in sel yetd-1, AND  sometime prior to the previous two fiscal years", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    myKey = "f2b";
+
+    strSql = "SELECT Id, Name FROM Account WHERE Id  IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM2End +")";
+
+
+    sqlObj = {key: myKey, query:"donated in the previous 2 fiscal years", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // RECOVERED ytdM2
+
+    myKey = "f3a";
+
+    strSql = "SELECT Id, Name FROM Account WHERE Id  IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM2Start + " AND CloseDate < " + ytdM2End +")";
+
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate < " + fyM5End +") ";
+
+    sqlObj = {key: myKey, query:"donated in sel yetd-1, AND  sometime prior to the previous two fiscal years", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    myKey = "f3b";
+
+    strSql = "SELECT Id, Name FROM Account WHERE Id  IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM4Start + " AND CloseDate < " + fyM3End +")";
+
+
+    sqlObj = {key: myKey, query:"donated in the previous 2 fiscal years", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // RECOVERED fym1
+
+    myKey = "f4a";
+
+    strSql = "SELECT Id, Name FROM Account WHERE Id  IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM1Start + " AND CloseDate < " + fyM1End +")";
+
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate < " + fyM3Start +") ";
+
+    sqlObj = {key: myKey, query:"donated in sel yetd-1, AND  sometime prior to the previous two fiscal years", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // RECOVERED fym2
+
+    myKey = "f5a";
+
+    strSql = "SELECT Id, Name FROM Account WHERE Id  IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM2End +")";
+
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate < " + fyM4Start +") ";
+
+    sqlObj = {key: myKey, query:"donated in sel yetd-1, AND  sometime prior to the previous two fiscal years", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+
 
 
 
@@ -1025,11 +1015,11 @@ myApp.factory("QueryService", ["$http", function($http) {
 
 
         // current retained donors
-        var crdSelYTD = countInEither2("d1a","d1b");
-        var crdSelYTDm1 = countInEither2("d2a","d2b");
-        var crdSelYTDm2 = countInEither2("d3a","d3b");
-        var crdFym1 = countInEither2("d4a","d4b");
-        var crdFym2 = countInEither2("d5a","d5b");
+        var crdSelYTD = getCount("d1");
+        var crdSelYTDm1 = getCount("d2");
+        var crdSelYTDm2 = getCount("d3");
+        var crdFym1 = getCount("d4");
+        var crdFym2 = getCount("d5");
 
         console.log("crdSelYTD", crdSelYTD);
         console.log("crdSelYTDm1", crdSelYTDm1);
@@ -1037,11 +1027,11 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("crdFym1", crdFym1);
         console.log("crdFym2", crdFym2);
 
-        var l2ybntyYTD = countInEither("e1a","e1b");
-        var l2ybntyYTDM1 = countInEither("e2a","e2b");
-        var l2ybntyYTDM2 = countInEither("e3a","e3b");
-        var l2ybntyFym1 = countInEither("e4a","e4b");
-        var l2ybntyFym2 = countInEither("e5a","e5b");
+        var l2ybntyYTD = getCount("e1");
+        var l2ybntyYTDM1 = getCount("e2");
+        var l2ybntyYTDM2 = getCount("e3");
+        var l2ybntyFym1 = getCount("e4");
+        var l2ybntyFym2 = getCount("e5");
 
 
         console.log("l2ybntyYTD", l2ybntyYTD);
@@ -1064,12 +1054,17 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("tcdpFym1", tcdpFym1);
         console.log("tcdpFym2", tcdpFym2);
 
+        var recYTD = nukeBfromA("f1a","f1b");
+        var recYTDm1 = nukeBfromA("f2a","f2b");
+        var recYTDm2 = nukeBfromA("f3a","f3b");
+        var recFym1 = nukeBfromA("f4a","f2b");
+        var recFym2 = nukeBfromA("f5a","f3b");
 
-
-
-
-
-
+        console.log("recYTD", recYTD);
+        console.log("recYTDm1", recYTDm1);
+        console.log("recYTDm2", recYTDm2);
+        console.log("recFym1", recFym1);
+        console.log("recFym2", recFym2);
 
 
 
@@ -1169,6 +1164,8 @@ myApp.factory("QueryService", ["$http", function($http) {
         }
         // got both loaded in new array
 
+        // this counts unique members of arrComp
+
         var o = {},  l = arrComp.length, r = [];
         for(i=0; i<l;i+=1) o[arrComp[i]] = arrComp[i];
         for(i in o) r.push(o[i]);
@@ -1179,6 +1176,41 @@ myApp.factory("QueryService", ["$http", function($http) {
         // console.log("Hoping for a total of records unique to these two arrays", counts);
 
 
+    };
+
+    var nukeBfromA = function(keyA, keyB){
+
+
+
+        var arrA =[];
+        var arrB = [];
+
+        // console.log("IN nukeBfromA, keys", keyA, keyB);
+
+        for(var i=0; i<arrResults.length; i++){
+            if (arrResults[i].myKey == keyA){
+                arrA = arrResults[i].result.records;
+            }
+            if (arrResults[i].myKey == keyB){
+                arrB = arrResults[i].result.records;
+            }
+        }
+
+        // console.log("In Nuke b from a, START length of a=", arrA.length);
+        // console.log("In Nuke b from a, START length of b=", arrB.length);
+
+        // both arrays assigned
+        // remove b from a
+        for (i=0; i<arrB.length; i++){
+            for (var j=0; j<arrA.length; j++){
+                if (arrA[j].Id == arrB[i].Id){
+                    // console.log("Match nuking!");
+                    arrA.splice(j,1);
+                }
+            }
+        }
+        // console.log("In Nuke b from a, AFTER length of a=", arrA.length);
+        return arrA.length;
     };
 
     var getCount = function(key){
