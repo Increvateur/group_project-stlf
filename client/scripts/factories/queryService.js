@@ -836,6 +836,30 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     arrSql.push(sqlObj);
 
+    // lost ytd
+    myKey = "g1";
+    strSql = "SELECT  COUNT(Id) FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' GROUP BY AccountId HAVING MAX(CloseDate) <= " + fyM3End;
+
+    sqlObj = {key: myKey, query:"lost ytd (how is this yeartd)", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // lost ytd-1
+    myKey = "g2";
+    strSql = "SELECT  COUNT(Id) FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' GROUP BY AccountId HAVING MAX(CloseDate) <= " + fyM4End;
+
+    sqlObj = {key: myKey, query:"lost ytd-1 (how is this yeartd)", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // lost ytd-2
+    myKey = "g3";
+    strSql = "SELECT  COUNT(Id) FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' GROUP BY AccountId HAVING MAX(CloseDate) <= " + fyM5End;
+
+    sqlObj = {key: myKey, query:"lost ytd-2 (how is this yeartd)", sql: strSql};
+
+    arrSql.push(sqlObj);
+
 
 
 
@@ -927,81 +951,19 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     var parseResults = function(){
 
-        //base
-        var totalBaseSelYTD = totalResults("m1");
-        var totalBaseSelYTDm1 = totalResults("m2");
-        var totalBaseSelYTDm2 = totalResults("m3");
-        var totalBaseFYm1 = totalResults("m4");
-        var totalBaseFYm2 = totalResults("m5");
-
-        console.log("totalBaseSelYTD =", totalBaseSelYTD);
-        console.log("totalBaseSelYTDm1 =", totalBaseSelYTDm1);
-        console.log("totalBaseSelYTDm2 =", totalBaseSelYTDm2);
-        console.log("totalBaseFYm1 =", totalBaseFYm1);
-        console.log("totalBaseFYm2 =", totalBaseFYm2);
-
-        // intermediate
-
-        var totalInterSelYTD = totalResults("n1");
-        var totalInterSelYTDm1 = totalResults("n2");
-        var totalInterSelYTDm2 = totalResults("n3");
-        var totalInterFYm1 = totalResults("n4");
-        var totalInterFYm2 = totalResults("n5");
-
-        console.log("totalInterSelYTD =", totalInterSelYTD);
-        console.log("totalInterSelYTDm1 =", totalInterSelYTDm1);
-        console.log("totalInterSelYTDm2 =", totalInterSelYTDm2);
-        console.log("totalInterFYm1 =", totalInterFYm1);
-        console.log("totalInterFYm2 =", totalInterFYm2);
-
-        // large
-
-        var totalLargeSelYTD = totalResults("o1");
-        var totalLargeSelYTDm1 = totalResults("o2");
-        var totalLargeSelYTDm2 = totalResults("o3");
-        var totalLargeFYm1 = totalResults("o4");
-        var totalLargeFYm2 = totalResults("o5");
-
-        console.log("totalLargeSelYTD =", totalLargeSelYTD);
-        console.log("totalLargeSelYTDm1 =", totalLargeSelYTDm1);
-        console.log("totalLargeSelYTDm2 =", totalLargeSelYTDm2);
-        console.log("totalLargeFYm1 =", totalLargeFYm1);
-        console.log("totalLargeFYm2 =", totalLargeFYm2);
-
-        // major
-
-        var totalMajorSelYTD = totalResults("p1");
-        var totalMajorSelYTDm1 = totalResults("p2");
-        var totalMajorSelYTDm2 = totalResults("p3");
-        var totalMajorFYm1 = totalResults("p4");
-        var totalMajorFYm2 = totalResults("p5");
-
-        console.log("totalMajorSelYTD =", totalMajorSelYTD);
-        console.log("totalMajorSelYTDm1 =", totalMajorSelYTDm1);
-        console.log("totalMajorSelYTDm2 =", totalMajorSelYTDm2);
-        console.log("totalMajorFYm1 =", totalMajorFYm1);
-        console.log("totalMajorFYm2 =", totalMajorFYm2);
-        //
-        // total
-        var totalAllSelYTD = totalResults("q1");
-        var totalAllSelYTDm1 = totalResults("q2");
-        var totalAllSelYTDm2 = totalResults("q3");
-        var totalAllFYm1 = totalResults("q4");
-        var totalAllFYm2 = totalResults("q5");
 
 
-        console.log("totalAllSelYTD =", totalAllSelYTD);
-        console.log("totalAllSelYTDm1 =", totalAllSelYTDm1);
-        console.log("totalAllSelYTDm2 =", totalAllSelYTDm2);
-        console.log("totalAllFYm1 =", totalAllFYm1);
-        console.log("totalAllFYm2 =", totalAllFYm2);
 
+        //Donor	Acquistion	&	Retention
         // first time donors
+        console.log("Donor	Acquistion	&	Retention");
+        console.log("first time donors");
         var ftdYTD = getCount("c1");
         var ftdYTDm1 = getCount("c2");
         var ftdYTDm2 = getCount("c3");
         var ftdFym1 = getCount("c4");
         var ftdFym2 = getCount("c5");
+
 
         console.log("ftdYTD", ftdYTD);
         console.log("ftdYTDm1", ftdYTDm1);
@@ -1009,10 +971,7 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("ftdFym1", ftdFym1);
         console.log("ftdFym2", ftdFym2);
 
-
-
-
-
+        console.log("Current retained donors");
 
         // current retained donors
         var crdSelYTD = getCount("d1");
@@ -1026,6 +985,8 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("crdSelYTDm1", crdSelYTDm2);
         console.log("crdFym1", crdFym1);
         console.log("crdFym2", crdFym2);
+
+        console.log("L2YBNTY");
 
         var l2ybntyYTD = getCount("e1");
         var l2ybntyYTDM1 = getCount("e2");
@@ -1041,6 +1002,7 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("l2ybntyFym2", l2ybntyFym2);
 
         // total current donor pool
+        console.log("Total current donor pool");
 
         var tcdpYTD = ftdYTD + crdSelYTD + l2ybntyYTD;
         var tcdpYTDm1 = ftdYTDm1 + crdSelYTDm1 + l2ybntyYTDM1;
@@ -1054,6 +1016,26 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("tcdpFym1", tcdpFym1);
         console.log("tcdpFym2", tcdpFym2);
 
+        // perect current retained donors
+        console.log("Current retained donors percentage");
+
+        var pctCrdSelYTD = crdSelYTD / tcdpYTD;
+        var pctCrdSelYTDm1 = crdSelYTDm1 / tcdpYTDm1;
+        var pctCrdSelYTDm2 = crdSelYTDm2 / tcdpYTDm2;
+        var pctCrdFym1 = crdFym1 / tcdpFym1;
+        var pctCrdFym2 = crdFym2 / tcdpFym2;
+
+        console.log("pctCrdSelYTD", pctCrdSelYTD);
+        console.log("pctCrdSelYTDm1", pctCrdSelYTDm1);
+        console.log("pctCrdSelYTDm2", pctCrdSelYTDm2);
+        console.log("pctCrdFym1", pctCrdFym1);
+        console.log("pctCrdFym2", pctCrdFym2);
+
+
+
+
+        console.log("Recovered Donors");
+
         var recYTD = nukeBfromA("f1a","f1b");
         var recYTDm1 = nukeBfromA("f2a","f2b");
         var recYTDm2 = nukeBfromA("f3a","f3b");
@@ -1065,6 +1047,120 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("recYTDm2", recYTDm2);
         console.log("recFym1", recFym1);
         console.log("recFym2", recFym2);
+
+        console.log("Lost Donors");
+
+        var lostYTD = getCount("g1");
+        var lostYTDm1 = getCount("g2");
+        var lostYTDm2 = getCount("g3");
+        var lostFym1 = getCount("g1");
+        var lostFym2 = getCount("g2");
+
+        console.log("lostYTD", lostYTD);
+        console.log("lostYTDm1", lostYTDm1);
+        console.log("lostYTDm2", lostYTDm2);
+        console.log("lostFym1", lostFym1);
+        console.log("lostFym2", lostFym2);
+
+        // total lost recovery pool
+        console.log("Total lost recovery  pool");
+        var poolYTD = recYTD + lostYTD;
+        var poolYTDm1 = recYTDm1 + lostYTDm1;
+        var poolYTDm2 = recYTDm2 + lostYTDm2;
+        var poolFym1 = recFym1 + lostFym1;
+        var poolFym2 = recFym2 + lostFym2;
+
+        console.log("poolYTD",poolYTD);
+        console.log("poolYTDm1",poolYTDm1);
+        console.log("poolYTDm2",poolYTDm2);
+        console.log("poolFym1",poolFym1);
+        console.log("poolFym2",poolFym2);
+
+        //TODO percentage donors Recovered
+
+
+
+
+        // gift range chart
+        console.log("Gift Range Chart");
+        console.log("Donors at each level");
+
+        console.log("Base");
+
+        //base
+        var totalBaseSelYTD = totalResults("m1");
+        var totalBaseSelYTDm1 = totalResults("m2");
+        var totalBaseSelYTDm2 = totalResults("m3");
+        var totalBaseFYm1 = totalResults("m4");
+        var totalBaseFYm2 = totalResults("m5");
+
+        console.log("totalBaseSelYTD =", totalBaseSelYTD);
+        console.log("totalBaseSelYTDm1 =", totalBaseSelYTDm1);
+        console.log("totalBaseSelYTDm2 =", totalBaseSelYTDm2);
+        console.log("totalBaseFYm1 =", totalBaseFYm1);
+        console.log("totalBaseFYm2 =", totalBaseFYm2);
+
+        console.log("intermediate");
+        // intermediate
+
+        var totalInterSelYTD = totalResults("n1");
+        var totalInterSelYTDm1 = totalResults("n2");
+        var totalInterSelYTDm2 = totalResults("n3");
+        var totalInterFYm1 = totalResults("n4");
+        var totalInterFYm2 = totalResults("n5");
+
+        console.log("totalInterSelYTD =", totalInterSelYTD);
+        console.log("totalInterSelYTDm1 =", totalInterSelYTDm1);
+        console.log("totalInterSelYTDm2 =", totalInterSelYTDm2);
+        console.log("totalInterFYm1 =", totalInterFYm1);
+        console.log("totalInterFYm2 =", totalInterFYm2);
+
+
+        console.log("Large");
+        // large
+
+        var totalLargeSelYTD = totalResults("o1");
+        var totalLargeSelYTDm1 = totalResults("o2");
+        var totalLargeSelYTDm2 = totalResults("o3");
+        var totalLargeFYm1 = totalResults("o4");
+        var totalLargeFYm2 = totalResults("o5");
+
+        console.log("totalLargeSelYTD =", totalLargeSelYTD);
+        console.log("totalLargeSelYTDm1 =", totalLargeSelYTDm1);
+        console.log("totalLargeSelYTDm2 =", totalLargeSelYTDm2);
+        console.log("totalLargeFYm1 =", totalLargeFYm1);
+        console.log("totalLargeFYm2 =", totalLargeFYm2);
+
+        console.log("major");
+        // major
+
+        var totalMajorSelYTD = totalResults("p1");
+        var totalMajorSelYTDm1 = totalResults("p2");
+        var totalMajorSelYTDm2 = totalResults("p3");
+        var totalMajorFYm1 = totalResults("p4");
+        var totalMajorFYm2 = totalResults("p5");
+
+        console.log("totalMajorSelYTD =", totalMajorSelYTD);
+        console.log("totalMajorSelYTDm1 =", totalMajorSelYTDm1);
+        console.log("totalMajorSelYTDm2 =", totalMajorSelYTDm2);
+        console.log("totalMajorFYm1 =", totalMajorFYm1);
+        console.log("totalMajorFYm2 =", totalMajorFYm2);
+        //
+        console.log("Total");
+        // total
+        var totalAllSelYTD = totalResults("q1");
+        var totalAllSelYTDm1 = totalResults("q2");
+        var totalAllSelYTDm2 = totalResults("q3");
+        var totalAllFYm1 = totalResults("q4");
+        var totalAllFYm2 = totalResults("q5");
+
+
+        console.log("totalAllSelYTD =", totalAllSelYTD);
+        console.log("totalAllSelYTDm1 =", totalAllSelYTDm1);
+        console.log("totalAllSelYTDm2 =", totalAllSelYTDm2);
+        console.log("totalAllFYm1 =", totalAllFYm1);
+        console.log("totalAllFYm2 =", totalAllFYm2);
+
 
 
 
