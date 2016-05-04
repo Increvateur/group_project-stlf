@@ -1077,6 +1077,50 @@ myApp.factory("QueryService", ["$http", function($http) {
         console.log("poolFym2",poolFym2);
 
         //TODO percentage donors Recovered
+        console.log("Percentage donors recovered");
+
+        var pctRecYTD = recYTD / lostYTD;
+        var pctRecYTDm1 = recYTDm1 / lostYTDm1;
+        var pctRecYTDm2 = recYTDm2  / lostYTDm2;
+        var pctRecFym1 = recFym1 / lostFym1;
+        var pctRecFym2 = recFym2 / lostFym2;
+
+        console.log("pctRecYTD", pctRecYTD);
+        console.log("pctRecYTDm1", pctRecYTDm1);
+        console.log("pctRecYTDm2", pctRecYTDm2);
+        console.log("pctRecFym1", pctRecFym1);
+        console.log("pctRecFym2", pctRecFym2);
+
+        // donor universe
+        console.log("Donor Universe");
+        var duYTD = tcdpYTD + poolYTD;
+        var duYTDm1 = tcdpYTDm1 + poolYTDm1;
+        var duYTDm2 = tcdpYTDm2 + poolYTDm2;
+        var duFym1 = tcdpFym1 + poolFym1;
+        var duFym2 = tcdpFym2 + poolFym2;
+
+        console.log("duYTD", duYTD);
+        console.log("duYTDm1", duYTDm1);
+        console.log("duYTDm2", duYTDm2);
+        console.log("duFym1", duFym1);
+        console.log("duFym2", duFym2);
+
+        // percentage retained donors
+        console.log("Percentage retained donors");
+
+        var prdYTD = duYTD / crdSelYTD;
+        var prdYTDm1 = duYTDm1 / crdSelYTDm1;
+        var prdYTDm2 = duYTDm2 / crdSelYTDm2;
+        var prdFym1 = duFym1 / crdFym1;
+        var prdFym2 = duFym2 / crdFym2;
+
+        console.log("prdYTD", prdYTD);
+        console.log("prdYTDm1", prdYTDm1);
+        console.log("prdYTDm2", prdYTDm2);
+        console.log("prdFym1", prdFym1);
+        console.log("prdFym2", prdFym2);
+
+
 
 
 
@@ -1084,6 +1128,23 @@ myApp.factory("QueryService", ["$http", function($http) {
         // gift range chart
         console.log("Gift Range Chart");
         console.log("Donors at each level");
+
+        // Base
+        var baseYTD = getCount("c1");
+        var baseYTDm1 = getCount("c2");
+        var baseYTDm2 = getCount("c3");
+        var baseFym1 = getCount("c4");
+        var baseFym2 = getCount("c5");
+
+        console.log("baseYTD",baseYTD );
+        console.log("baseYTDm1",baseYTDm1 );
+        console.log("baseYTDm2",baseYTDm2 );
+        console.log("baseFym1",baseFym1 );
+        console.log("baseFym2",baseFym2 );
+
+        // Inter
+        // Large
+        // Major
 
         console.log("Base");
 
