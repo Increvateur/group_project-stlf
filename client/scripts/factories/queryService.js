@@ -838,6 +838,7 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     // lost ytd
     myKey = "g1";
+    // TODO*** this is the current working version
     strSql = "SELECT  COUNT(Id) FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' GROUP BY AccountId HAVING MAX(CloseDate) <= " + fyM3End;
 
     sqlObj = {key: myKey, query:"lost ytd (how is this yeartd)", sql: strSql};
@@ -1446,6 +1447,8 @@ myApp.factory("QueryService", ["$http", function($http) {
 
 
     };
+
+
 
 
 
