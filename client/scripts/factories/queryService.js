@@ -620,9 +620,9 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     myKey = "d1";
 
-    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdStart + " AND CloseDate < " + ytdEnd +")";
+    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + ytdStart + " AND CloseDate < =" + ytdEnd +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM1End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > =" + fyM2Start + " AND CloseDate < =" + fyM1End +") ";
 
     sqlObj = {key: myKey, query:"CURRENT RETAINED YTD new def", sql: strSql};
 
@@ -633,9 +633,9 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     myKey = "d2";
 
-    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM1Start + " AND CloseDate < " + ytdM1End +")";
+    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + ytdM1Start + " AND CloseDate <= " + ytdM1End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM2End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + fyM3Start + " AND CloseDate <= " + fyM2End +") ";
 
     sqlObj = {key: myKey, query:"CURRENT RETAINED YTD-1 new def", sql: strSql};
 
@@ -646,9 +646,9 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     myKey = "d3";
 
-    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM2Start + " AND CloseDate < " + ytdM2End +")";
+    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + ytdM2Start + " AND CloseDate <= " + ytdM2End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM4Start + " AND CloseDate < " + fyM3End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + fyM4Start + " AND CloseDate <= " + fyM3End +") ";
 
     sqlObj = {key: myKey, query:"CURRENT RETAINED YTD-2 new def", sql: strSql};
 
@@ -659,9 +659,9 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     myKey = "d4";
 
-    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM1Start + " AND CloseDate < " + fyM1End +")";
+    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + fyM1Start + " AND CloseDate <= " + fyM1End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM2End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > =" + fyM3Start + " AND CloseDate <= " + fyM2End +") ";
 
     sqlObj = {key: myKey, query:"CURRENT RETAINED FYM1", sql: strSql};
 
@@ -672,35 +672,35 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     myKey = "d5";
 
-    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM2End +")";
+    strSql = "SELECT Id, Name FROM Account WHERE Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + fyM2Start + " AND CloseDate <= " + fyM2End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM4Start + " AND CloseDate < " + fyM3End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > =" + fyM4Start + " AND CloseDate <= " + fyM3End +") ";
 
     sqlObj = {key: myKey, query:"CURRENT RETAINED FYM2", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    // lsybnty ytd
+    // l2ybnty ytd
     // NOTdonated ytd and within fym2 start and fym1end
 
     myKey = "e1";
 
-    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdStart + " AND CloseDate < " + ytdEnd +")";
+    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + ytdStart + " AND CloseDate <= " + ytdEnd +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM1End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + fyM2Start + " AND CloseDate < =" + fyM1End +") ";
 
     sqlObj = {key: myKey, query:"l2ybnty YTD new def", sql: strSql};
 
     arrSql.push(sqlObj);
 
-    //  lsybnty ytdm1
+    //  l2ybnty ytdm1
     // not donated ytdm1 and within fym3 start and fyM2End
 
     myKey = "e2";
 
-    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM1Start + " AND CloseDate < " + ytdM1End +")";
+    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + ytdM1Start + " AND CloseDate <= " + ytdM1End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM2End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + fyM3Start + " AND CloseDate <= " + fyM2End +") ";
 
     sqlObj = {key: myKey, query:"l2ybnty YTD-1 new def", sql: strSql};
 
@@ -711,9 +711,9 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     myKey = "e3";
 
-    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + ytdM2Start + " AND CloseDate < " + ytdM2End +")";
+    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + ytdM2Start + " AND CloseDate <= " + ytdM2End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM4Start + " AND CloseDate < " + fyM3End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + fyM4Start + " AND CloseDate <= " + fyM3End +") ";
 
     sqlObj = {key: myKey, query:"l2ybnty YTD-2 new def", sql: strSql};
 
@@ -724,9 +724,9 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     myKey = "e4";
 
-    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM1Start + " AND CloseDate < " + fyM1End +")";
+    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + fyM1Start + " AND CloseDate <= " + fyM1End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM3Start + " AND CloseDate < " + fyM2End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + fyM3Start + " AND CloseDate <= " + fyM2End +") ";
 
     sqlObj = {key: myKey, query:"l2ybnty FYM1", sql: strSql};
 
@@ -737,9 +737,9 @@ myApp.factory("QueryService", ["$http", function($http) {
 
     myKey = "e5";
 
-    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM2Start + " AND CloseDate < " + fyM2End +")";
+    strSql = "SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + fyM2Start + " AND CloseDate <= " + fyM2End +")";
 
-    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate > " + fyM4Start + " AND CloseDate < " + fyM3End +") ";
+    strSql += "AND  Id IN (SELECT AccountId FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' AND CloseDate >= " + fyM4Start + " AND CloseDate <= " + fyM3End +") ";
 
     sqlObj = {key: myKey, query:"l2ybnty FYM2", sql: strSql};
 
@@ -839,7 +839,7 @@ myApp.factory("QueryService", ["$http", function($http) {
     // lost ytd
     myKey = "g1";
     // TODO*** this is the current working version
-    strSql = "SELECT  COUNT(Id) FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' GROUP BY AccountId HAVING MAX(CloseDate) <= " + fyM3End;
+    strSql = "SELECT AccountId,  COUNT(Id) FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' GROUP BY AccountId HAVING MAX(CloseDate) <= " + fyM3End;
 
     sqlObj = {key: myKey, query:"lost ytd (how is this yeartd)", sql: strSql};
 
@@ -858,6 +858,127 @@ myApp.factory("QueryService", ["$http", function($http) {
     strSql = "SELECT  COUNT(Id) FROM Opportunity WHERE StageName = 'Posted' AND RecordTypeID = '012800000002KPtAAM' GROUP BY AccountId HAVING MAX(CloseDate) <= " + fyM5End;
 
     sqlObj = {key: myKey, query:"lost ytd-2 (how is this yeartd)", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+
+    // GROUP individual for Mark YTD
+    myKey = "h1";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Staff',  'Board','Committee','Parent', 'Alum','Participant','Community Support')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + ytdStart + " AND CloseDate <=" + ytdEnd ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount individuals YTD", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP individual for Mark YTDm1
+    myKey = "h2";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Staff',  'Board','Committee','Parent', 'Alum','Participant','Community Support')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + ytdM1Start + " AND CloseDate <=" + ytdM1End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount individuals YTDm1", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP individual for Mark YTDm2
+    myKey = "h3";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Staff',  'Board','Committee','Parent', 'Alum','Participant','Community Support')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + ytdM2Start + " AND CloseDate <=" + ytdM2End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount individuals YTDm2", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP individual for Mark Fym1
+    myKey = "h4";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Staff',  'Board','Committee','Parent', 'Alum','Participant','Community Support')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + fyM1Start + " AND CloseDate <=" + fyM1End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount individuals Fym1", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP individual for Mark Fym2
+    myKey = "h5";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Staff',  'Board','Committee','Parent', 'Alum','Participant','Community Support')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + fyM2Start + " AND CloseDate <=" + fyM2End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount individuals Fym2", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP corporate for Mark YTD
+    myKey = "i1";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Corporate/Organization Money','Corporate Match')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + ytdStart + " AND CloseDate <=" + ytdEnd ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount corporate YTD", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP corporate for Mark YTDm1
+    myKey = "i2";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Corporate/Organization Money','Corporate Match')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + ytdM1Start + " AND CloseDate <=" + ytdM1End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount corporate YTDm1", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP corporate for Mark YTDm2
+    myKey = "i3";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Corporate/Organization Money','Corporate Match')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + ytdM2Start + " AND CloseDate <=" + ytdM2End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount corporate YTDm2", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP corporate for Mark Fym1
+    myKey = "i4";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Corporate/Organization Money','Corporate Match')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + fyM1Start + " AND CloseDate <=" + fyM1End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount corporate Fym1", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP corporate for Mark Fym2
+    myKey = "i5";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Corporate/Organization Money','Corporate Match')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + fyM2Start + " AND CloseDate <=" + fyM2End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount corporate Fym2", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP foundation for Mark YTD
+    myKey = "j1";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Corporate Foundation','Family Foundation/Fund','General Foundation')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + ytdStart + " AND CloseDate <=" + ytdEnd ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount foundation YTD", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP foundation for Mark YTDm1
+    myKey = "j2";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Corporate Foundation','Family Foundation/Fund','General Foundation')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + ytdM1Start + " AND CloseDate <=" + ytdM1End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount foundation YTDm1", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP foundation for Mark YTDm2
+    myKey = "j3";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Corporate Foundation','Family Foundation/Fund','General Foundation')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + ytdM2Start + " AND CloseDate <=" + ytdM2End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount foundation YTDm2", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP foundation for Mark Fym1
+    myKey = "j4";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Corporate Foundation','Family Foundation/Fund','General Foundation')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + fyM1Start + " AND CloseDate <=" + fyM1End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount foundation Fym1", sql: strSql};
+
+    arrSql.push(sqlObj);
+
+    // GROUP foundation for Mark Fym2
+    myKey = "j5";
+    strSql = "SELECT  SUM(Amount) TotalCash FROM  Opportunity WHERE Donation_SubCategory__c IN ('Corporate Foundation','Family Foundation/Fund','General Foundation')   AND StageName = 'Posted' AND Amount != null AND CloseDate >= " + fyM2Start + " AND CloseDate <=" + fyM2End ;
+
+    sqlObj = {key: myKey, query:"TOTAL amount foundation Fym2", sql: strSql};
 
     arrSql.push(sqlObj);
 
